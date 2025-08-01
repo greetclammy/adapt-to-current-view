@@ -1,0 +1,1 @@
+# adapt-to-current-view
