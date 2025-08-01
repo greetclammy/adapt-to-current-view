@@ -29,12 +29,12 @@ __export(main_exports, {
 module.exports = __toCommonJS(main_exports);
 var import_obsidian = require("obsidian");
 var DEFAULT_SETTINGS = {
-  sourceColor: "",
-  livePreviewColor: "",
-  readingColor: "",
-  darkSourceColor: "",
-  darkLivePreviewColor: "",
-  darkReadingColor: ""
+  sourceColor: "#379d94",
+  livePreviewColor: "#97698c",
+  readingColor: "#6b987d",
+  darkSourceColor: "#52c4bb",
+  darkLivePreviewColor: "#c790b3",
+  darkReadingColor: "#8cbf9e"
 };
 var DEFAULT_HSL = [250, 100, 50];
 var SETTING_KEYS = {
@@ -55,21 +55,19 @@ var AccentColorPlugin = class extends import_obsidian.Plugin {
     this.updateAccentColor();
   }
   async loadSettings() {
+    var _a, _b, _c, _d, _e, _f;
     const data = await this.loadData();
-    if (data) {
+    if (data && typeof data === "object") {
       this.settings = {
-        sourceColor: data.sourceColor || DEFAULT_SETTINGS.sourceColor,
-        livePreviewColor: data.livePreviewColor || DEFAULT_SETTINGS.livePreviewColor,
-        readingColor: data.readingColor || DEFAULT_SETTINGS.readingColor,
-        darkSourceColor: data.darkSourceColor || DEFAULT_SETTINGS.darkSourceColor,
-        darkLivePreviewColor: data.darkLivePreviewColor || DEFAULT_SETTINGS.darkLivePreviewColor,
-        darkReadingColor: data.darkReadingColor || DEFAULT_SETTINGS.darkReadingColor
+        sourceColor: (_a = data.sourceColor) != null ? _a : DEFAULT_SETTINGS.sourceColor,
+        livePreviewColor: (_b = data.livePreviewColor) != null ? _b : DEFAULT_SETTINGS.livePreviewColor,
+        readingColor: (_c = data.readingColor) != null ? _c : DEFAULT_SETTINGS.readingColor,
+        darkSourceColor: (_d = data.darkSourceColor) != null ? _d : DEFAULT_SETTINGS.darkSourceColor,
+        darkLivePreviewColor: (_e = data.darkLivePreviewColor) != null ? _e : DEFAULT_SETTINGS.darkLivePreviewColor,
+        darkReadingColor: (_f = data.darkReadingColor) != null ? _f : DEFAULT_SETTINGS.darkReadingColor
       };
     } else {
       this.settings = { ...DEFAULT_SETTINGS };
-    }
-    if (!data) {
-      await this.saveData(this.settings);
     }
   }
   async saveSettings() {
@@ -195,19 +193,86 @@ var AccentColorSettingTab = class extends import_obsidian.PluginSettingTab {
   display() {
     const { containerEl } = this;
     containerEl.empty();
-    containerEl.createEl("h2", { text: "Light Mode Colors" });
+    containerEl.createEl("h2", { text: "\u2600\uFE0F Light mode colors" });
+    containerEl.createEl("p", { text: "Set accent color for each view mode when base color scheme is light." });
     this.addColorSettings(containerEl, false);
-    containerEl.createEl("h2", { text: "Dark Mode Colors" });
+    containerEl.createEl("h2", { text: "\u{1F319} Dark mode colors" });
+    containerEl.createEl("p", { text: "Set accent color for each view mode when base color scheme is dark." });
     this.addColorSettings(containerEl, true);
+    const buttonContainer = containerEl.createDiv({ cls: "setting-item" });
+    buttonContainer.style.display = "flex";
+    buttonContainer.style.justifyContent = "flex-end";
+    buttonContainer.style.marginTop = "20px";
+    const restoreButton = buttonContainer.createEl("button", {
+      text: "Restore Defaults",
+      cls: "mod-cta"
+    });
+    restoreButton.addEventListener("click", async () => {
+      this.plugin.settings = { ...DEFAULT_SETTINGS };
+      await this.plugin.saveSettings();
+      this.display();
+    });
   }
   addColorSettings(container, isDark) {
-    const modes = ["source", "livePreview", "reading"];
+    const modes = [
+      { key: "reading", name: "Reading view" },
+      { key: "livePreview", name: "Live Preview" },
+      { key: "source", name: "Source view" }
+    ];
     modes.forEach((mode) => {
-      const settingKey = isDark ? `dark${mode.charAt(0).toUpperCase() + mode.slice(1)}Color` : `${mode}Color`;
-      new import_obsidian.Setting(container).setName(`${mode.charAt(0).toUpperCase() + mode.slice(1)} Color`).setDesc(isDark ? `Set the accent color for ${mode} mode in dark theme (Leave blank to use light theme color)` : `Set the accent color for ${mode} mode in light theme`).addText((text) => text.setPlaceholder(isDark ? "Enter color or leave blank" : "Enter color").setValue(this.plugin.settings[settingKey]).onChange(async (value) => {
-        this.plugin.settings[settingKey] = value;
-        await this.plugin.saveSettings();
-      }));
+      const settingKey = isDark ? `dark${mode.key.charAt(0).toUpperCase() + mode.key.slice(1)}Color` : `${mode.key}Color`;
+      const setting = new import_obsidian.Setting(container).setName(mode.name);
+      let textInput;
+      let colorPicker;
+      setting.addColorPicker((color) => {
+        const currentValue = this.plugin.settings[settingKey];
+        const hexValue = currentValue && !currentValue.startsWith("#") ? "#" + currentValue : currentValue || "#ffffff";
+        colorPicker = color;
+        color.setValue(hexValue).onChange(async (value) => {
+          const cleanValue = value.startsWith("#") ? value.slice(1) : value;
+          this.plugin.settings[settingKey] = cleanValue;
+          if (textInput)
+            textInput.setValue(value);
+          await this.plugin.saveSettings();
+        });
+      }).addText((text) => {
+        const currentValue = this.plugin.settings[settingKey];
+        const displayValue = currentValue && !currentValue.startsWith("#") ? "#" + currentValue : currentValue;
+        textInput = text;
+        text.setPlaceholder(isDark ? "#ffffff or leave blank" : "#ffffff").setValue(displayValue).onChange(async (value) => {
+          const cleanValue = value.startsWith("#") ? value.slice(1) : value;
+          this.plugin.settings[settingKey] = cleanValue;
+          if (colorPicker && value.length === 7)
+            colorPicker.setValue(value);
+          await this.plugin.saveSettings();
+        });
+        const inputEl = text.inputEl;
+        inputEl.maxLength = 7;
+        inputEl.addEventListener("input", (e) => {
+          let value = inputEl.value;
+          if (!value.startsWith("#")) {
+            value = "#" + value;
+          }
+          value = value.replace(/[^#0-9a-fA-F]/g, "");
+          if (value.length > 7) {
+            value = value.slice(0, 7);
+          }
+          inputEl.value = value;
+        });
+        inputEl.addEventListener("paste", (e) => {
+          var _a;
+          e.preventDefault();
+          const paste = ((_a = e.clipboardData) == null ? void 0 : _a.getData("text")) || "";
+          const cleanPaste = paste.replace(/[^0-9a-fA-F]/g, "").slice(0, 6);
+          inputEl.value = "#" + cleanPaste;
+          inputEl.dispatchEvent(new Event("input"));
+        });
+        inputEl.addEventListener("keydown", (e) => {
+          if ((e.key === "Backspace" || e.key === "Delete") && inputEl.selectionStart === 1 && inputEl.selectionEnd === 1) {
+            e.preventDefault();
+          }
+        });
+      });
     });
   }
 };

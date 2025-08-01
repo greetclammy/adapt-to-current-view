@@ -10,12 +10,12 @@ interface AccentColorSettings {
 }
 
 const DEFAULT_SETTINGS: AccentColorSettings = {
-    sourceColor: '#379d94',
-    livePreviewColor: '#97698c',
-    readingColor: '#6b987d',
-    darkSourceColor: '#52c4bb',
-    darkLivePreviewColor: '#c790b3',
-    darkReadingColor: '#8cbf9e'
+    sourceColor: '',
+    livePreviewColor: '',
+    readingColor: '',
+    darkSourceColor: '',
+    darkLivePreviewColor: '',
+    darkReadingColor: ''
 }
 
 const DEFAULT_HSL: [number, number, number] = [250, 100, 50];
@@ -43,21 +43,28 @@ export default class AccentColorPlugin extends Plugin {
     }
 
     async loadSettings() {
-        const data = await this.loadData();
-        
-        if (data && typeof data === 'object') {
-            // Directly assign loaded values, keeping existing values if they exist
-            this.settings = {
-                sourceColor: data.sourceColor ?? DEFAULT_SETTINGS.sourceColor,
-                livePreviewColor: data.livePreviewColor ?? DEFAULT_SETTINGS.livePreviewColor,
-                readingColor: data.readingColor ?? DEFAULT_SETTINGS.readingColor,
-                darkSourceColor: data.darkSourceColor ?? DEFAULT_SETTINGS.darkSourceColor,
-                darkLivePreviewColor: data.darkLivePreviewColor ?? DEFAULT_SETTINGS.darkLivePreviewColor,
-                darkReadingColor: data.darkReadingColor ?? DEFAULT_SETTINGS.darkReadingColor
-            };
-        } else {
-            this.settings = { ...DEFAULT_SETTINGS };
+        const data = await this.loadData() || {};
+        const cleanSettings = { ...DEFAULT_SETTINGS };
+
+        // Create a map of all possible key variations to their canonical forms
+        const keyMap = new Map(Object.values(SETTING_KEYS).flatMap(key => [
+            [key.toLowerCase(), key],
+            [key.toUpperCase(), key],
+            [key, key]
+        ]));
+
+        // Normalize all keys in the data
+        for (const [key, value] of Object.entries(data)) {
+            const canonicalKey = keyMap.get(key);
+            if (canonicalKey && canonicalKey in cleanSettings) {
+                cleanSettings[canonicalKey as keyof AccentColorSettings] = value as string;
+            }
         }
+
+        this.settings = cleanSettings;
+        
+        // Always save with canonical keys to clean up any legacy data
+        await this.saveData(cleanSettings);
     }
 
     async saveSettings() {
@@ -198,111 +205,32 @@ class AccentColorSettingTab extends PluginSettingTab {
         const {containerEl} = this;
         containerEl.empty();
 
-        containerEl.createEl('h2', {text: '☀️ Light mode colors'});
-        containerEl.createEl('p', {text: 'Set accent color for each view mode when base color scheme is light.'});
+        containerEl.createEl('h2', {text: 'Light Mode Colors'});
         this.addColorSettings(containerEl, false);
 
-        containerEl.createEl('h2', {text: '🌙 Dark mode colors'});
-        containerEl.createEl('p', {text: 'Set accent color for each view mode when base color scheme is dark.'});
+        containerEl.createEl('h2', {text: 'Dark Mode Colors'});
         this.addColorSettings(containerEl, true);
-
-        // Restore defaults button
-        const buttonContainer = containerEl.createDiv({cls: 'setting-item'});
-        buttonContainer.style.display = 'flex';
-        buttonContainer.style.justifyContent = 'flex-end';
-        buttonContainer.style.marginTop = '20px';
-        
-        const restoreButton = buttonContainer.createEl('button', {
-            text: 'Restore Defaults',
-            cls: 'mod-cta'
-        });
-        
-        restoreButton.addEventListener('click', async () => {
-            this.plugin.settings = { ...DEFAULT_SETTINGS };
-            await this.plugin.saveSettings();
-            this.display(); // Refresh the settings display
-        });
     }
 
     private addColorSettings(container: HTMLElement, isDark: boolean): void {
-        const modes: {key: 'source' | 'livePreview' | 'reading', name: string}[] = [
-            {key: 'reading', name: 'Reading view'},
-            {key: 'livePreview', name: 'Live Preview'},
-            {key: 'source', name: 'Source view'}
-        ];
-        
+        const modes: ('source' | 'livePreview' | 'reading')[] = ['source', 'livePreview', 'reading'];
         modes.forEach(mode => {
             const settingKey = isDark 
-                ? `dark${mode.key.charAt(0).toUpperCase() + mode.key.slice(1)}Color` as keyof AccentColorSettings
-                : `${mode.key}Color` as keyof AccentColorSettings;
+                ? `dark${mode.charAt(0).toUpperCase() + mode.slice(1)}Color` as keyof AccentColorSettings
+                : `${mode}Color` as keyof AccentColorSettings;
             
-            const setting = new Setting(container)
-                .setName(mode.name);
-            
-            let textInput: any;
-            let colorPicker: any;
-            
-            setting.addColorPicker(color => {
-                const currentValue = this.plugin.settings[settingKey];
-                const hexValue = currentValue && !currentValue.startsWith('#') ? '#' + currentValue : (currentValue || '#ffffff');
-                
-                colorPicker = color;
-                color.setValue(hexValue)
+            new Setting(container)
+                .setName(`${mode.charAt(0).toUpperCase() + mode.slice(1)} Color`)
+                .setDesc(isDark ? 
+                    `Set the accent color for ${mode} mode in dark theme (Leave blank to use light theme color)` :
+                    `Set the accent color for ${mode} mode in light theme`)
+                .addText(text => text
+                    .setPlaceholder(isDark ? 'Enter color or leave blank' : 'Enter color')
+                    .setValue(this.plugin.settings[settingKey])
                     .onChange(async (value) => {
-                        const cleanValue = value.startsWith('#') ? value.slice(1) : value;
-                        this.plugin.settings[settingKey] = cleanValue;
-                        if (textInput) textInput.setValue(value);
+                        this.plugin.settings[settingKey] = value;
                         await this.plugin.saveSettings();
-                    });
-            })
-            .addText(text => {
-                const currentValue = this.plugin.settings[settingKey];
-                const displayValue = currentValue && !currentValue.startsWith('#') ? '#' + currentValue : currentValue;
-                
-                textInput = text;
-                text.setPlaceholder(isDark ? '#ffffff or leave blank' : '#ffffff')
-                    .setValue(displayValue)
-                    .onChange(async (value) => {
-                        const cleanValue = value.startsWith('#') ? value.slice(1) : value;
-                        this.plugin.settings[settingKey] = cleanValue;
-                        if (colorPicker && value.length === 7) colorPicker.setValue(value);
-                        await this.plugin.saveSettings();
-                    });
-                
-                const inputEl = text.inputEl;
-                inputEl.maxLength = 7;
-                
-                inputEl.addEventListener('input', (e) => {
-                    let value = inputEl.value;
-                    
-                    if (!value.startsWith('#')) {
-                        value = '#' + value;
-                    }
-                    
-                    value = value.replace(/[^#0-9a-fA-F]/g, '');
-                    
-                    if (value.length > 7) {
-                        value = value.slice(0, 7);
-                    }
-                    
-                    inputEl.value = value;
-                });
-                
-                inputEl.addEventListener('paste', (e) => {
-                    e.preventDefault();
-                    const paste = e.clipboardData?.getData('text') || '';
-                    const cleanPaste = paste.replace(/[^0-9a-fA-F]/g, '').slice(0, 6);
-                    inputEl.value = '#' + cleanPaste;
-                    inputEl.dispatchEvent(new Event('input'));
-                });
-                
-                inputEl.addEventListener('keydown', (e) => {
-                    if ((e.key === 'Backspace' || e.key === 'Delete') && 
-                        inputEl.selectionStart === 1 && inputEl.selectionEnd === 1) {
-                        e.preventDefault();
-                    }
-                });
-            });
+                    }));
         });
     }
 }
