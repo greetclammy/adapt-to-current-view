@@ -6,7 +6,19 @@ I find that this works (and looks!) best with [Minimal Theme](https://minimal.gu
 
 ![2a3d4e7e9bb4f46a9187497e9f1eae2e5cbd4c20](https://github.com/user-attachments/assets/350abda9-c4c7-4d73-8208-bb323e4e4544)
 
+<details>
+  <summary>Mobile app view</summary>
+
 ![3f2bea90b423b4d4744b45cc5b7ddab1196ac671](https://github.com/user-attachments/assets/cd7b1b3a-f630-4b19-8f08-b4aef0b7e010)
+
+</details>
+
+## ⚙️ Settings page overview
+
+<details>
+  <summary>Screenshot</summary>
+<img width="918" height="707" alt="Screenshot 2025-08-01 at 23 40 53" src="https://github.com/user-attachments/assets/814f8d5a-07f6-4fd2-bd7a-d27c50f2a69e" />
+</details>
 
 ## ✅ Installation
 
