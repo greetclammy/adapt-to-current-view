@@ -13,7 +13,7 @@ I find that this works (and looks!) best with [Minimal Theme](https://minimal.gu
 1. Install the community plugin [BRAT](https://obsidian.md/plugins?id=obsidian42-brat).
 2. Go to the BRAT settings.
 3. Press "Add Beta Plugin".
-3. Paste the following URL in the text field: https://github.com/greetclammy/adapt-to-current-view/.
+3. Paste the following URL in the text field: https://github.com/greetclammy/adapt-to-current-view.
 4. Select the latest release.
 5. Make sure that "Enable after installing the plugin" is checked.
 6. Press "Add Plugin".
