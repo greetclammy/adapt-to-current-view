@@ -29,3 +29,38 @@ I find that this works (and looks!) best with [Minimal Theme](https://minimal.gu
 4. Select the latest release.
 5. Make sure that "Enable after installing the plugin" is checked.
 6. Press "Add Plugin".
+
+## 🖼️ Optional CSS snippet to hide border under _Underline_ tabs
+
+For a cleaner look. Best paired with _Workspace borders_ toggled OFF in _Minimal Theme Settings_.
+
+<details>
+  <summary>CSS snippet</summary>
+
+```css
+body.theme-light.tabs-underline .mod-root .workspace-tab-header-container,
+body.theme-dark.tabs-underline .mod-root .workspace-tab-header-container {
+    border-bottom: none !important;
+}
+
+body.theme-light.tabs-underline .mod-left-split .workspace-tab-header-container,
+body.theme-dark.tabs-underline .mod-left-split .workspace-tab-header-container {
+    border-bottom: none !important;
+}
+
+body.theme-light.tabs-underline .mod-right-split .workspace-tab-header-container,
+body.theme-dark.tabs-underline .mod-right-split .workspace-tab-header-container {
+    border-bottom: none !important;
+}
+
+body.theme-light.tabs-underline .workspace-tab-header-container,
+body.theme-dark.tabs-underline .workspace-tab-header-container {
+    border-bottom: none !important;
+}
+
+body.theme-light.tabs-underline .workspace-tab-header,
+body.theme-dark.tabs-underline .workspace-tab-header {
+    border-bottom-width: 2px;
+}
+```
+</details>
