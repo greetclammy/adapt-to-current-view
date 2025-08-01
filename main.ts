@@ -42,30 +42,28 @@ export default class AccentColorPlugin extends Plugin {
         this.updateAccentColor();
     }
 
-    async loadSettings() {
-        const data = await this.loadData() || {};
-        const cleanSettings = { ...DEFAULT_SETTINGS };
-
-        // Create a map of all possible key variations to their canonical forms
-        const keyMap = new Map(Object.values(SETTING_KEYS).flatMap(key => [
-            [key.toLowerCase(), key],
-            [key.toUpperCase(), key],
-            [key, key]
-        ]));
-
-        // Normalize all keys in the data
-        for (const [key, value] of Object.entries(data)) {
-            const canonicalKey = keyMap.get(key);
-            if (canonicalKey && canonicalKey in cleanSettings) {
-                cleanSettings[canonicalKey as keyof AccentColorSettings] = value as string;
-            }
-        }
-
-        this.settings = cleanSettings;
-        
-        // Always save with canonical keys to clean up any legacy data
-        await this.saveData(cleanSettings);
+async loadSettings() {
+    const data = await this.loadData();
+    
+    if (data) {
+        // Directly assign loaded values, falling back to defaults for missing keys
+        this.settings = {
+            sourceColor: data.sourceColor || DEFAULT_SETTINGS.sourceColor,
+            livePreviewColor: data.livePreviewColor || DEFAULT_SETTINGS.livePreviewColor,
+            readingColor: data.readingColor || DEFAULT_SETTINGS.readingColor,
+            darkSourceColor: data.darkSourceColor || DEFAULT_SETTINGS.darkSourceColor,
+            darkLivePreviewColor: data.darkLivePreviewColor || DEFAULT_SETTINGS.darkLivePreviewColor,
+            darkReadingColor: data.darkReadingColor || DEFAULT_SETTINGS.darkReadingColor
+        };
+    } else {
+        this.settings = { ...DEFAULT_SETTINGS };
     }
+    
+    // Only save if we started with defaults (no existing data)
+    if (!data) {
+        await this.saveData(this.settings);
+    }
+}
 
     async saveSettings() {
         // Ensure we're only saving the canonical keys
