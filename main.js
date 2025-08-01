@@ -197,7 +197,7 @@ var AccentColorSettingTab = class extends import_obsidian.PluginSettingTab {
     containerEl.createEl("p", { text: "Set accent color for each view mode when base color scheme is light." });
     this.addColorSettings(containerEl, false);
     containerEl.createEl("h2", { text: "\u{1F319} Dark mode colors" });
-    containerEl.createEl("p", { text: "Set accent color for each view mode when base color scheme is dark." });
+    containerEl.createEl("p", { text: "Set accent color for each view mode when base color scheme is dark. Leave blank to use light mode color." });
     this.addColorSettings(containerEl, true);
     const buttonContainer = containerEl.createDiv({ cls: "setting-item" });
     buttonContainer.style.display = "flex";
