@@ -32,9 +32,11 @@ I find that this works (and looks!) best with [Minimal Theme](https://minimal.gu
 
 ## 💬 Discuss
 
-Please share your thoughts on the Obsidian Forum:
+Feel free to share your thoughts about this plugin on:
 
-- https://forum.obsidian.md/t/plugin-to-asign-different-accent-colors-for-reading-view-live-preview-and-source-view/90504
+- [GitHub discussions](https://github.com/greetclammy/adapt-to-current-view/discussions)
+- [The Obsidian Forum](ttps://forum.obsidian.md/t/plugin-to-asign-different-accent-colors-for-reading-view-live-preview-and-source-view/90504)
+- [The Obsidian Members Group (OMG) Discord channel](https://discord.com/channels/686053708261228577/707816848615407697)
 
 ## 🖼️ Optional CSS snippets
 
