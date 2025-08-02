@@ -7,7 +7,7 @@ I find that this works (and looks!) best with [Minimal Theme](https://minimal.gu
 ![2a3d4e7e9bb4f46a9187497e9f1eae2e5cbd4c20](https://github.com/user-attachments/assets/350abda9-c4c7-4d73-8208-bb323e4e4544)
 
 <details>
-  <summary>Mobile app view</summary>
+  <summary>Mobile app overview</summary>
 
 ![3f2bea90b423b4d4744b45cc5b7ddab1196ac671](https://github.com/user-attachments/assets/cd7b1b3a-f630-4b19-8f08-b4aef0b7e010)
 
