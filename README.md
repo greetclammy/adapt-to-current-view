@@ -104,8 +104,8 @@ body:not(.minimal-unstyled-tags),
 
 Feel free to share your thoughts about this plugin on:
 
-- [GitHub discussions](https://github.com/greetclammy/adapt-to-current-view/discussions)
 - [The Obsidian Forum](https://forum.obsidian.md/t/plugin-to-asign-different-accent-colors-for-reading-view-live-preview-and-source-view/90504)
 - [The Obsidian Members Group (OMG) Discord channel](https://discord.com/channels/686053708261228577/707816848615407697)
+- [GitHub discussions](https://github.com/greetclammy/adapt-to-current-view/discussions)
 
 Please ⭐️ this repository if you found the plugin helpful 😇
