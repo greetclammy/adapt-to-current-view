@@ -32,7 +32,7 @@ I find that this works (and looks!) best with [Minimal Theme](https://minimal.gu
 
 ## 🖼️ Optional CSS snippet to hide border under _Underline_ tabs
 
-For a cleaner look. Best paired with _Workspace borders_ toggled OFF in _Minimal Theme Settings_.
+For a cleaner look. Shown in the screenshot above. Best paired with _Workspace borders_ toggled OFF in _Minimal Theme Settings_.
 
 <details>
   <summary>CSS snippet</summary>
