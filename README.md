@@ -38,6 +38,8 @@ Feel free to share your thoughts about this plugin on:
 - [The Obsidian Forum](ttps://forum.obsidian.md/t/plugin-to-asign-different-accent-colors-for-reading-view-live-preview-and-source-view/90504)
 - [The Obsidian Members Group (OMG) Discord channel](https://discord.com/channels/686053708261228577/707816848615407697)
 
+Please ⭐️ this repository if you found the plugin helpful.
+
 ## 🖼️ Optional CSS snippets
 
 ### Hide border under Minimal Theme's _Underline_ tabs
