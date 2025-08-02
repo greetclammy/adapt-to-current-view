@@ -30,7 +30,9 @@ I find that this works (and looks!) best with [Minimal Theme](https://minimal.gu
 5. Make sure that "Enable after installing the plugin" is checked.
 6. Press "Add Plugin".
 
-## 🖼️ Optional CSS snippet to hide border under _Underline_ tabs
+## 🖼️ Optional CSS snippets
+
+### Hide border under Minimal Theme's _Underline_ tabs
 
 For a cleaner look. Shown in the screenshot above. Best paired with _Workspace borders_ toggled OFF in _Minimal Theme Settings_.
 
@@ -61,6 +63,39 @@ body.theme-dark.tabs-underline .workspace-tab-header-container {
 body.theme-light.tabs-underline .workspace-tab-header,
 body.theme-dark.tabs-underline .workspace-tab-header {
     border-bottom-width: 2px;
+}
+```
+</details>
+
+### Default theme tag appearance for Minimal Theme
+
+<details>
+  <summary>CSS snippet</summary>
+
+<img width="1056" height="726" alt="image" src="https://github.com/user-attachments/assets/a3566c8e-6948-45a4-843f-382c3ac72a65" />
+
+```css
+body:not(.minimal-unstyled-tags),
+.theme-dark body:not(.minimal-unstyled-tags) {
+  --tag-background: hsla(var(--accent-h), var(--accent-s), var(--accent-l), 0.1) !important;
+  --tag-background-hover: hsla(var(--accent-h), var(--accent-s), var(--accent-l), 0.2) !important;
+  --tag-color: var(--interactive-accent) !important;
+  --tag-color-hover: var(--interactive-accent) !important;
+}
+
+.tag:not(.token) {
+  background-color: var(--tag-background) !important;
+  color: var(--tag-color) !important;
+}
+
+.tag:not(.token):hover {
+  background-color: var(--tag-background-hover) !important;
+  color: var(--tag-color-hover) !important;
+}
+
+.markdown-source-view.mod-cm6 .cm-hashtag {
+  color: var(--tag-color) !important;
+  background-color: var(--tag-background) !important;
 }
 ```
 </details>
