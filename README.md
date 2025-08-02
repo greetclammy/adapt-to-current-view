@@ -30,6 +30,12 @@ I find that this works (and looks!) best with [Minimal Theme](https://minimal.gu
 5. Make sure that "Enable after installing the plugin" is checked.
 6. Press "Add Plugin".
 
+## 💬 Discuss
+
+Please share your thoughts on the Obsidian Forum:
+
+- https://forum.obsidian.md/t/plugin-to-asign-different-accent-colors-for-reading-view-live-preview-and-source-view/90504
+
 ## 🖼️ Optional CSS snippets
 
 ### Hide border under Minimal Theme's _Underline_ tabs
