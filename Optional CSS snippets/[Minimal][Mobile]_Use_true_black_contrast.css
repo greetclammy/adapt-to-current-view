@@ -1,0 +1,51 @@
+.is-mobile.theme-dark {
+  --base-d:0%;
+  --titlebar-background: black;
+  --background-primary: black;
+  --background-secondary: black;
+  --background-secondary-alt: black;
+  --ribbon-background: black;
+  --background-modifier-hover:
+  hsl(
+    var(--base-h),
+    var(--base-s),
+    calc(var(--base-d) + 10%)) ;
+  --tx1:hsl(
+    var(--base-h),
+    var(--base-s),
+    calc(var(--base-d) + 75%)
+    );
+  --tx2:hsl(
+    var(--base-h),
+    var(--base-s),
+    calc(var(--base-d) + 50%)
+    );
+  --tx3:hsl(
+    var(--base-h),
+    var(--base-s),
+    calc(var(--base-d) + 25%)
+    );
+  --ui1:hsl(
+    var(--base-h),
+    var(--base-s),
+    calc(var(--base-d) + 12%)
+    );
+  --ui2:hsl(
+    var(--base-h),
+    var(--base-s),
+    calc(var(--base-d) + 20%)
+    );
+  --ui3:hsl(
+    var(--base-h),
+    var(--base-s),
+    calc(var(--base-d) + 30%)
+    ); }
+
+ .is-mobile.theme-dark {
+  --background-primary-alt: var(--bg3);
+  --background-table-rows: var(--bg3);
+  --modal-border: var(--ui2);
+  --active-line-bg: rgba(255,255,255,0.085);
+  --background-modifier-form-field: var(--bg3);
+  --background-modifier-cover:hsla(var(--base-h),var(--base-s),calc(var(--base-d) + 8%),0.9);
+  --background-modifier-box-shadow: rgba(0, 0, 0, 1); }
