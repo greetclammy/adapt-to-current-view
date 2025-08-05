@@ -114,6 +114,4 @@ Or open an issue!
 
 - [First Line is Title](https://github.com/greetclammy/first-line-is-title)
 
-![test](obsidian://show-plugin?id=obsidian-minimal-settings)
-
 Please ⭐️ the GitHub repository if you found the plugin helpful 😇
