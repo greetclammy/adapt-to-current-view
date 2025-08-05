@@ -112,6 +112,6 @@ Or open an issue!
 
 ## 👨‍💻 What else I made
 
-- [First Line is title](https://github.com/greetclammy/first-line-is-title)
+- [First Line is Title](https://github.com/greetclammy/first-line-is-title)
 
 Please ⭐️ this repository if you found the plugin helpful 😇
