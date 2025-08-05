@@ -10,12 +10,12 @@ interface AccentColorSettings {
 }
 
 const DEFAULT_SETTINGS: AccentColorSettings = {
-    sourceColor: '#379d94',
-    livePreviewColor: '#97698c',
-    readingColor: '#6b987d',
-    darkSourceColor: '#52c4bb',
-    darkLivePreviewColor: '#c790b3',
-    darkReadingColor: '#8cbf9e'
+    sourceColor: '#379D94',
+    livePreviewColor: '#97698C',
+    readingColor: '#6B987D',
+    darkSourceColor: '#52C4BB',
+    darkLivePreviewColor: '#C790B3',
+    darkReadingColor: '#8CBF9E'
 }
 
 const DEFAULT_HSL: [number, number, number] = [250, 100, 50];
@@ -46,14 +46,14 @@ export default class AccentColorPlugin extends Plugin {
         const data = await this.loadData();
         
         if (data && typeof data === 'object') {
-            // Directly assign loaded values, keeping existing values if they exist
+            // Ensure all colors have # prefix for consistency
             this.settings = {
-                sourceColor: data.sourceColor ?? DEFAULT_SETTINGS.sourceColor,
-                livePreviewColor: data.livePreviewColor ?? DEFAULT_SETTINGS.livePreviewColor,
-                readingColor: data.readingColor ?? DEFAULT_SETTINGS.readingColor,
-                darkSourceColor: data.darkSourceColor ?? DEFAULT_SETTINGS.darkSourceColor,
-                darkLivePreviewColor: data.darkLivePreviewColor ?? DEFAULT_SETTINGS.darkLivePreviewColor,
-                darkReadingColor: data.darkReadingColor ?? DEFAULT_SETTINGS.darkReadingColor
+                sourceColor: this.normalizeColor(data.sourceColor ?? DEFAULT_SETTINGS.sourceColor),
+                livePreviewColor: this.normalizeColor(data.livePreviewColor ?? DEFAULT_SETTINGS.livePreviewColor),
+                readingColor: this.normalizeColor(data.readingColor ?? DEFAULT_SETTINGS.readingColor),
+                darkSourceColor: this.normalizeColor(data.darkSourceColor ?? DEFAULT_SETTINGS.darkSourceColor),
+                darkLivePreviewColor: this.normalizeColor(data.darkLivePreviewColor ?? DEFAULT_SETTINGS.darkLivePreviewColor),
+                darkReadingColor: this.normalizeColor(data.darkReadingColor ?? DEFAULT_SETTINGS.darkReadingColor)
             };
         } else {
             this.settings = { ...DEFAULT_SETTINGS };
@@ -61,18 +61,24 @@ export default class AccentColorPlugin extends Plugin {
     }
 
     async saveSettings() {
-        // Ensure we're only saving the canonical keys
+        // Save without # prefix for backward compatibility
         const cleanSettings: AccentColorSettings = {
-            [SETTING_KEYS.sourceColor]: this.settings.sourceColor,
-            [SETTING_KEYS.livePreviewColor]: this.settings.livePreviewColor,
-            [SETTING_KEYS.readingColor]: this.settings.readingColor,
-            [SETTING_KEYS.darkSourceColor]: this.settings.darkSourceColor,
-            [SETTING_KEYS.darkLivePreviewColor]: this.settings.darkLivePreviewColor,
-            [SETTING_KEYS.darkReadingColor]: this.settings.darkReadingColor
+            [SETTING_KEYS.sourceColor]: this.settings.sourceColor.replace('#', ''),
+            [SETTING_KEYS.livePreviewColor]: this.settings.livePreviewColor.replace('#', ''),
+            [SETTING_KEYS.readingColor]: this.settings.readingColor.replace('#', ''),
+            [SETTING_KEYS.darkSourceColor]: this.settings.darkSourceColor.replace('#', ''),
+            [SETTING_KEYS.darkLivePreviewColor]: this.settings.darkLivePreviewColor.replace('#', ''),
+            [SETTING_KEYS.darkReadingColor]: this.settings.darkReadingColor.replace('#', '')
         };
 
         await this.saveData(cleanSettings);
         this.updateAccentColor();
+    }
+
+    // Normalize color to always include # prefix
+    private normalizeColor(color: string): string {
+        if (!color || !color.trim()) return '';
+        return color.startsWith('#') ? color : '#' + color;
     }
 
     isDarkMode(): boolean {
@@ -113,10 +119,6 @@ export default class AccentColorPlugin extends Plugin {
             return;
         }
 
-        if (!color.startsWith('#')) {
-            color = '#' + color;
-        }
-
         try {
             const [h, s, l] = this.convertToHSL(color);
             document.body.style.setProperty('--accent-h', h.toString());
@@ -131,6 +133,11 @@ export default class AccentColorPlugin extends Plugin {
     }
 
     detectMode(view: MarkdownView): 'source' | 'livePreview' | 'reading' {
+        // Add defensive null checks
+        if (!view || !view.contentEl) {
+            return 'source';
+        }
+
         const sourceView = view.contentEl.querySelector('.markdown-source-view');
         const readingView = view.contentEl.querySelector('.markdown-reading-view');
         
@@ -148,13 +155,16 @@ export default class AccentColorPlugin extends Plugin {
             return DEFAULT_HSL;
         }
 
+        // Ensure color has # prefix
+        const normalizedColor = this.normalizeColor(color);
+
         const temp = document.createElement('div');
-        temp.style.color = color;
+        temp.style.color = normalizedColor;
         document.body.appendChild(temp);
         const computedColor = getComputedStyle(temp).color;
         document.body.removeChild(temp);
 
-        if (computedColor === 'rgb(0, 0, 0)' && !color.match(/black|#000|rgb\(0,\s*0,\s*0\)/i)) {
+        if (computedColor === 'rgb(0, 0, 0)' && !normalizedColor.match(/black|#000|rgb\(0,\s*0,\s*0\)/i)) {
             return DEFAULT_HSL;
         }
 
@@ -198,12 +208,12 @@ class AccentColorSettingTab extends PluginSettingTab {
         const {containerEl} = this;
         containerEl.empty();
 
-        containerEl.createEl('h2', {text: '☀️ Light mode colors'});
-        containerEl.createEl('p', {text: 'Set accent color for each view mode when base color scheme is light.'});
+        containerEl.createEl('h3', {text: '☀️ Light mode colors'});
+        containerEl.createEl('p', {text: 'Set accent color for each view mode when base color scheme is light.', cls: 'setting-item-description'});
         this.addColorSettings(containerEl, false);
 
-        containerEl.createEl('h2', {text: '🌙 Dark mode colors'});
-        containerEl.createEl('p', {text: 'Set accent color for each view mode when base color scheme is dark. Leave blank to use light mode color.'});
+        containerEl.createEl('h3', {text: '🌙 Dark mode colors'});
+        containerEl.createEl('p', {text: 'Set accent color for each view mode when base color scheme is dark. Leave blank to use light mode color.', cls: 'setting-item-description'});
         this.addColorSettings(containerEl, true);
 
         // Restore defaults button
@@ -213,7 +223,7 @@ class AccentColorSettingTab extends PluginSettingTab {
         buttonContainer.style.marginTop = '20px';
         
         const restoreButton = buttonContainer.createEl('button', {
-            text: 'Restore Defaults',
+            text: 'Restore defaults',
             cls: 'mod-cta'
         });
         
@@ -243,29 +253,30 @@ class AccentColorSettingTab extends PluginSettingTab {
             let colorPicker: any;
             
             setting.addColorPicker(color => {
+                // Always use normalized color with # prefix
                 const currentValue = this.plugin.settings[settingKey];
-                const hexValue = currentValue && !currentValue.startsWith('#') ? '#' + currentValue : (currentValue || '#ffffff');
                 
                 colorPicker = color;
-                color.setValue(hexValue)
+                color.setValue(currentValue || '#ffffff')
                     .onChange(async (value) => {
-                        const cleanValue = value.startsWith('#') ? value.slice(1) : value;
-                        this.plugin.settings[settingKey] = cleanValue;
-                        if (textInput) textInput.setValue(value);
+                        this.plugin.settings[settingKey] = value;
+                        // Don't update text input to preserve user's case preference
                         await this.plugin.saveSettings();
                     });
             })
             .addText(text => {
                 const currentValue = this.plugin.settings[settingKey];
-                const displayValue = currentValue && !currentValue.startsWith('#') ? '#' + currentValue : currentValue;
                 
                 textInput = text;
-                text.setPlaceholder(isDark ? '#ffffff or leave blank' : '#ffffff')
-                    .setValue(displayValue)
+                text.setPlaceholder(isDark ? '#FF0000' : '#FF0000')
+                    .setValue(currentValue)
                     .onChange(async (value) => {
-                        const cleanValue = value.startsWith('#') ? value.slice(1) : value;
-                        this.plugin.settings[settingKey] = cleanValue;
-                        if (colorPicker && value.length === 7) colorPicker.setValue(value);
+                        // Store with # prefix for consistency
+                        const normalizedValue = value ? (value.startsWith('#') ? value : '#' + value) : '';
+                        this.plugin.settings[settingKey] = normalizedValue;
+                        if (colorPicker && normalizedValue.length === 7) {
+                            colorPicker.setValue(normalizedValue);
+                        }
                         await this.plugin.saveSettings();
                     });
                 
@@ -275,7 +286,7 @@ class AccentColorSettingTab extends PluginSettingTab {
                 inputEl.addEventListener('input', (e) => {
                     let value = inputEl.value;
                     
-                    if (!value.startsWith('#')) {
+                    if (value && !value.startsWith('#')) {
                         value = '#' + value;
                     }
                     

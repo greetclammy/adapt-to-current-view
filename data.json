@@ -1,8 +1,8 @@
 {
-  "sourceColor": "#379d94",
-  "livePreviewColor": "#97698c",
-  "readingColor": "#6b987d",
-  "darkSourceColor": "#52c4bb",
-  "darkLivePreviewColor": "#c790b3",
-  "darkReadingColor": "#8cbf9e"
+  "sourceColor": "379D94",
+  "livePreviewColor": "97698C",
+  "readingColor": "6B987D",
+  "darkSourceColor": "52C4BB",
+  "darkLivePreviewColor": "C790B3",
+  "darkReadingColor": "8CBF9E"
 }

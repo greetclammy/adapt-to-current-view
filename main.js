@@ -29,12 +29,12 @@ __export(main_exports, {
 module.exports = __toCommonJS(main_exports);
 var import_obsidian = require("obsidian");
 var DEFAULT_SETTINGS = {
-  sourceColor: "#379d94",
-  livePreviewColor: "#97698c",
-  readingColor: "#6b987d",
-  darkSourceColor: "#52c4bb",
-  darkLivePreviewColor: "#c790b3",
-  darkReadingColor: "#8cbf9e"
+  sourceColor: "#379D94",
+  livePreviewColor: "#97698C",
+  readingColor: "#6B987D",
+  darkSourceColor: "#52C4BB",
+  darkLivePreviewColor: "#C790B3",
+  darkReadingColor: "#8CBF9E"
 };
 var DEFAULT_HSL = [250, 100, 50];
 var SETTING_KEYS = {
@@ -59,12 +59,12 @@ var AccentColorPlugin = class extends import_obsidian.Plugin {
     const data = await this.loadData();
     if (data && typeof data === "object") {
       this.settings = {
-        sourceColor: (_a = data.sourceColor) != null ? _a : DEFAULT_SETTINGS.sourceColor,
-        livePreviewColor: (_b = data.livePreviewColor) != null ? _b : DEFAULT_SETTINGS.livePreviewColor,
-        readingColor: (_c = data.readingColor) != null ? _c : DEFAULT_SETTINGS.readingColor,
-        darkSourceColor: (_d = data.darkSourceColor) != null ? _d : DEFAULT_SETTINGS.darkSourceColor,
-        darkLivePreviewColor: (_e = data.darkLivePreviewColor) != null ? _e : DEFAULT_SETTINGS.darkLivePreviewColor,
-        darkReadingColor: (_f = data.darkReadingColor) != null ? _f : DEFAULT_SETTINGS.darkReadingColor
+        sourceColor: this.normalizeColor((_a = data.sourceColor) != null ? _a : DEFAULT_SETTINGS.sourceColor),
+        livePreviewColor: this.normalizeColor((_b = data.livePreviewColor) != null ? _b : DEFAULT_SETTINGS.livePreviewColor),
+        readingColor: this.normalizeColor((_c = data.readingColor) != null ? _c : DEFAULT_SETTINGS.readingColor),
+        darkSourceColor: this.normalizeColor((_d = data.darkSourceColor) != null ? _d : DEFAULT_SETTINGS.darkSourceColor),
+        darkLivePreviewColor: this.normalizeColor((_e = data.darkLivePreviewColor) != null ? _e : DEFAULT_SETTINGS.darkLivePreviewColor),
+        darkReadingColor: this.normalizeColor((_f = data.darkReadingColor) != null ? _f : DEFAULT_SETTINGS.darkReadingColor)
       };
     } else {
       this.settings = { ...DEFAULT_SETTINGS };
@@ -72,15 +72,21 @@ var AccentColorPlugin = class extends import_obsidian.Plugin {
   }
   async saveSettings() {
     const cleanSettings = {
-      [SETTING_KEYS.sourceColor]: this.settings.sourceColor,
-      [SETTING_KEYS.livePreviewColor]: this.settings.livePreviewColor,
-      [SETTING_KEYS.readingColor]: this.settings.readingColor,
-      [SETTING_KEYS.darkSourceColor]: this.settings.darkSourceColor,
-      [SETTING_KEYS.darkLivePreviewColor]: this.settings.darkLivePreviewColor,
-      [SETTING_KEYS.darkReadingColor]: this.settings.darkReadingColor
+      [SETTING_KEYS.sourceColor]: this.settings.sourceColor.replace("#", ""),
+      [SETTING_KEYS.livePreviewColor]: this.settings.livePreviewColor.replace("#", ""),
+      [SETTING_KEYS.readingColor]: this.settings.readingColor.replace("#", ""),
+      [SETTING_KEYS.darkSourceColor]: this.settings.darkSourceColor.replace("#", ""),
+      [SETTING_KEYS.darkLivePreviewColor]: this.settings.darkLivePreviewColor.replace("#", ""),
+      [SETTING_KEYS.darkReadingColor]: this.settings.darkReadingColor.replace("#", "")
     };
     await this.saveData(cleanSettings);
     this.updateAccentColor();
+  }
+  // Normalize color to always include # prefix
+  normalizeColor(color) {
+    if (!color || !color.trim())
+      return "";
+    return color.startsWith("#") ? color : "#" + color;
   }
   isDarkMode() {
     return document.body.classList.contains("theme-dark");
@@ -116,9 +122,6 @@ var AccentColorPlugin = class extends import_obsidian.Plugin {
       document.body.style.setProperty("--accent-l", l + "%");
       return;
     }
-    if (!color.startsWith("#")) {
-      color = "#" + color;
-    }
     try {
       const [h, s, l] = this.convertToHSL(color);
       document.body.style.setProperty("--accent-h", h.toString());
@@ -132,6 +135,9 @@ var AccentColorPlugin = class extends import_obsidian.Plugin {
     }
   }
   detectMode(view) {
+    if (!view || !view.contentEl) {
+      return "source";
+    }
     const sourceView = view.contentEl.querySelector(".markdown-source-view");
     const readingView = view.contentEl.querySelector(".markdown-reading-view");
     if (readingView && window.getComputedStyle(readingView).display !== "none") {
@@ -146,12 +152,13 @@ var AccentColorPlugin = class extends import_obsidian.Plugin {
     if (!color.trim()) {
       return DEFAULT_HSL;
     }
+    const normalizedColor = this.normalizeColor(color);
     const temp = document.createElement("div");
-    temp.style.color = color;
+    temp.style.color = normalizedColor;
     document.body.appendChild(temp);
     const computedColor = getComputedStyle(temp).color;
     document.body.removeChild(temp);
-    if (computedColor === "rgb(0, 0, 0)" && !color.match(/black|#000|rgb\(0,\s*0,\s*0\)/i)) {
+    if (computedColor === "rgb(0, 0, 0)" && !normalizedColor.match(/black|#000|rgb\(0,\s*0,\s*0\)/i)) {
       return DEFAULT_HSL;
     }
     const rgb = (_a = computedColor.match(/\d+/g)) == null ? void 0 : _a.map(Number);
@@ -193,18 +200,18 @@ var AccentColorSettingTab = class extends import_obsidian.PluginSettingTab {
   display() {
     const { containerEl } = this;
     containerEl.empty();
-    containerEl.createEl("h2", { text: "\u2600\uFE0F Light mode colors" });
-    containerEl.createEl("p", { text: "Set accent color for each view mode when base color scheme is light." });
+    containerEl.createEl("h3", { text: "\u2600\uFE0F Light mode colors" });
+    containerEl.createEl("p", { text: "Set accent color for each view mode when base color scheme is light.", cls: "setting-item-description" });
     this.addColorSettings(containerEl, false);
-    containerEl.createEl("h2", { text: "\u{1F319} Dark mode colors" });
-    containerEl.createEl("p", { text: "Set accent color for each view mode when base color scheme is dark. Leave blank to use light mode color." });
+    containerEl.createEl("h3", { text: "\u{1F319} Dark mode colors" });
+    containerEl.createEl("p", { text: "Set accent color for each view mode when base color scheme is dark. Leave blank to use light mode color.", cls: "setting-item-description" });
     this.addColorSettings(containerEl, true);
     const buttonContainer = containerEl.createDiv({ cls: "setting-item" });
     buttonContainer.style.display = "flex";
     buttonContainer.style.justifyContent = "flex-end";
     buttonContainer.style.marginTop = "20px";
     const restoreButton = buttonContainer.createEl("button", {
-      text: "Restore Defaults",
+      text: "Restore defaults",
       cls: "mod-cta"
     });
     restoreButton.addEventListener("click", async () => {
@@ -226,31 +233,27 @@ var AccentColorSettingTab = class extends import_obsidian.PluginSettingTab {
       let colorPicker;
       setting.addColorPicker((color) => {
         const currentValue = this.plugin.settings[settingKey];
-        const hexValue = currentValue && !currentValue.startsWith("#") ? "#" + currentValue : currentValue || "#ffffff";
         colorPicker = color;
-        color.setValue(hexValue).onChange(async (value) => {
-          const cleanValue = value.startsWith("#") ? value.slice(1) : value;
-          this.plugin.settings[settingKey] = cleanValue;
-          if (textInput)
-            textInput.setValue(value);
+        color.setValue(currentValue || "#ffffff").onChange(async (value) => {
+          this.plugin.settings[settingKey] = value;
           await this.plugin.saveSettings();
         });
       }).addText((text) => {
         const currentValue = this.plugin.settings[settingKey];
-        const displayValue = currentValue && !currentValue.startsWith("#") ? "#" + currentValue : currentValue;
         textInput = text;
-        text.setPlaceholder(isDark ? "#ffffff or leave blank" : "#ffffff").setValue(displayValue).onChange(async (value) => {
-          const cleanValue = value.startsWith("#") ? value.slice(1) : value;
-          this.plugin.settings[settingKey] = cleanValue;
-          if (colorPicker && value.length === 7)
-            colorPicker.setValue(value);
+        text.setPlaceholder(isDark ? "#FF0000" : "#FF0000").setValue(currentValue).onChange(async (value) => {
+          const normalizedValue = value ? value.startsWith("#") ? value : "#" + value : "";
+          this.plugin.settings[settingKey] = normalizedValue;
+          if (colorPicker && normalizedValue.length === 7) {
+            colorPicker.setValue(normalizedValue);
+          }
           await this.plugin.saveSettings();
         });
         const inputEl = text.inputEl;
         inputEl.maxLength = 7;
         inputEl.addEventListener("input", (e) => {
           let value = inputEl.value;
-          if (!value.startsWith("#")) {
+          if (value && !value.startsWith("#")) {
             value = "#" + value;
           }
           value = value.replace(/[^#0-9a-fA-F]/g, "");

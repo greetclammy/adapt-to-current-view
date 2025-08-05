@@ -2,7 +2,7 @@
   "id": "adapt-to-current-view",
   "name": "Adapt to Current View",
   "version": "1.0.0",
-  "minAppVersion": "0.15.0",
+  "minAppVersion": "1.0.0",
   "description": "Set different accent colors for Reading view, Live Preview and Source.",
   "author": "greetclammy",
   "isDesktopOnly": false
