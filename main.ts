@@ -39,6 +39,7 @@ export default class AccentColorPlugin extends Plugin {
         this.registerEvent(this.app.workspace.on('active-leaf-change', () => this.updateAccentColor()));
         this.registerEvent(this.app.workspace.on('layout-change', () => this.updateAccentColor()));
         this.registerEvent(this.app.workspace.on('css-change', () => this.updateAccentColor()));
+        this.addStyles();
         this.updateAccentColor();
     }
 
@@ -194,6 +195,33 @@ export default class AccentColorPlugin extends Plugin {
 
         return [Math.round(h * 360), Math.round(s * 100), Math.round(l * 100)];
     }
+
+    addStyles() {
+        const styleEl = document.createElement('style');
+        styleEl.id = 'accent-color-plugin-styles';
+        styleEl.textContent = `
+            .accent-color-button-container {
+                display: flex !important;
+                justify-content: flex-end !important;
+                margin-top: 20px !important;
+            }
+        `;
+        
+        // Remove existing styles if they exist
+        const existing = document.getElementById('accent-color-plugin-styles');
+        if (existing) {
+            existing.remove();
+        }
+        
+        document.head.appendChild(styleEl);
+    }
+
+    onunload() {
+        const existing = document.getElementById('accent-color-plugin-styles');
+        if (existing) {
+            existing.remove();
+        }
+    }
 }
 
 class AccentColorSettingTab extends PluginSettingTab {
@@ -217,10 +245,7 @@ class AccentColorSettingTab extends PluginSettingTab {
         this.addColorSettings(containerEl, true);
 
         // Restore defaults button
-        const buttonContainer = containerEl.createDiv({cls: 'setting-item'});
-        buttonContainer.style.display = 'flex';
-        buttonContainer.style.justifyContent = 'flex-end';
-        buttonContainer.style.marginTop = '20px';
+        const buttonContainer = containerEl.createDiv({cls: 'setting-item accent-color-button-container'});
         
         const restoreButton = buttonContainer.createEl('button', {
             text: 'Restore defaults',
