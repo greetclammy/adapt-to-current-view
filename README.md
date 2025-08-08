@@ -22,6 +22,8 @@ I find that this works (and looks!) best with [Minimal Theme](https://minimal.gu
 
 ## ✅ Installation
 
+Untill this plugin is made availiable in the plugin gallery, it can be insalled via BRAT:
+
 1. Install the community plugin [BRAT](https://obsidian.md/plugins?id=obsidian42-brat).
 2. Go to the BRAT settings.
 3. Press "Add Beta Plugin".
