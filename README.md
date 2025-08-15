@@ -1,10 +1,24 @@
 # Adapt to Current View
 
-This plugin allows to set different accent colors for Reading view, Live Preview and Source.
+Allows to set different accent colors for Reading view, Live Preview and Source.
 
-I find that this works (and looks!) best with [Minimal Theme](https://minimal.guide/)’s Undeline tab style (shown below), which can be enabled in its *[Style Settings](https://obsidian.md/plugins?id=obsidian-style-settings)*, and with _Colorful active states_, which can be enabled in *[Minimal Theme Settings](https://obsidian.md/plugins?id=obsidian-minimal-settings)*.
+This works (and looks!) best with a theme that somehow showcases the accent color. Two great examples are [Border](https://github.com/Akifyss/obsidian-border) and [Minimal](https://minimal.guide/).
 
-![2a3d4e7e9bb4f46a9187497e9f1eae2e5cbd4c20](https://github.com/user-attachments/assets/350abda9-c4c7-4d73-8208-bb323e4e4544)
+## Border
+
+<img width="1890" height="1417" alt="border" src="https://github.com/user-attachments/assets/1d9b34d1-7105-4592-8b76-4cc649b1ec08" />
+
+
+## Minimal
+
+Recommended settings to enable:
+
+1. _Undeline_ tab style, configured via *[Style Settings](https://obsidian.md/plugins?id=obsidian-style-settings)*.
+2. _Colorful active states_, configured in *[Minimal Theme Settings](https://obsidian.md/plugins?id=obsidian-minimal-settings)*.
+
+<img width="1890" height="1417" alt="minimal" src="https://github.com/user-attachments/assets/7cd8019a-7ad1-4a18-a822-cc1b34a6acfb" />
+
+<br>
 
 <details>
   <summary>What it looks like on mobile</summary>
