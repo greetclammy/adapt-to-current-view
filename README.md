@@ -47,75 +47,7 @@ Untill this plugin is made availiable in the plugin gallery, it can be insalled 
 
 ## 🖼️ Optional CSS snippets
 
-### Hide border under Minimal Theme's _Underline_ tabs
-
-For a cleaner look. Shown in the screenshot above. Best paired with _Workspace borders_ toggled OFF in _Minimal Theme Settings_.
-
-<details>
-  <summary>CSS snippet</summary>
-
-```css
-body.theme-light.tabs-underline .mod-root .workspace-tab-header-container,
-body.theme-dark.tabs-underline .mod-root .workspace-tab-header-container {
-    border-bottom: none !important;
-}
-
-body.theme-light.tabs-underline .mod-left-split .workspace-tab-header-container,
-body.theme-dark.tabs-underline .mod-left-split .workspace-tab-header-container {
-    border-bottom: none !important;
-}
-
-body.theme-light.tabs-underline .mod-right-split .workspace-tab-header-container,
-body.theme-dark.tabs-underline .mod-right-split .workspace-tab-header-container {
-    border-bottom: none !important;
-}
-
-body.theme-light.tabs-underline .workspace-tab-header-container,
-body.theme-dark.tabs-underline .workspace-tab-header-container {
-    border-bottom: none !important;
-}
-
-body.theme-light.tabs-underline .workspace-tab-header,
-body.theme-dark.tabs-underline .workspace-tab-header {
-    border-bottom-width: 2px;
-}
-```
-</details>
-
-### Default theme tag appearance for Minimal Theme
-
-<details>
-  <summary>CSS snippet</summary>
-
-<img width="1056" height="726" alt="image" src="https://github.com/user-attachments/assets/a3566c8e-6948-45a4-843f-382c3ac72a65" />
-
-```css
-body:not(.minimal-unstyled-tags),
-.theme-dark body:not(.minimal-unstyled-tags) {
-  --tag-background: hsla(var(--accent-h), var(--accent-s), var(--accent-l), 0.1) !important;
-  --tag-background-hover: hsla(var(--accent-h), var(--accent-s), var(--accent-l), 0.2) !important;
-  --tag-color: var(--interactive-accent) !important;
-  --tag-color-hover: var(--interactive-accent) !important;
-}
-
-.tag:not(.token) {
-  background-color: var(--tag-background) !important;
-  color: var(--tag-color) !important;
-}
-
-.tag:not(.token):hover {
-  background-color: var(--tag-background-hover) !important;
-  color: var(--tag-color-hover) !important;
-}
-
-.markdown-source-view.mod-cm6 .cm-hashtag {
-  color: var(--tag-color) !important;
-  background-color: var(--tag-background) !important;
-}
-```
-</details>
-
-A few other companion snippets can be found [here](https://github.com/greetclammy/adapt-to-current-view/tree/main/Optional%20CSS%20snippets).
+A few nifty companion snippets can be found [here](https://github.com/greetclammy/adapt-to-current-view/tree/main/Optional%20CSS%20snippets).
 
 ## 💬 Discuss
 
