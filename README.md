@@ -115,7 +115,7 @@ body:not(.minimal-unstyled-tags),
 ```
 </details>
 
-A few other snippets that go well with this plugin can be found [here](https://github.com/greetclammy/adapt-to-current-view/tree/main/Optional%20CSS%20snippets).
+A few other companion snippets can be found [here](https://github.com/greetclammy/adapt-to-current-view/tree/main/Optional%20CSS%20snippets).
 
 ## 💬 Discuss
 
