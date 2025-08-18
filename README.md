@@ -1,6 +1,6 @@
 # Adapt to Current View
 
-Allows to set different accent colors for Reading view, Live Preview and Source.
+Set different accent colors for Reading view, Live Preview and Source.
 
 This works (and looks!) best with a theme that somehow showcases the accent color. Two great examples are [Border](https://github.com/Akifyss/obsidian-border) and [Minimal](https://minimal.guide/).
 
