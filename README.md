@@ -1,6 +1,8 @@
 # Adapt to Current View
 
-Set different accent colors for Reading view, Live Preview and Source.
+Set different accent colors for Reading view, Live Preview and Source. 
+
+Helps to gauge what view you're in so you don't attempt to edit in Reading view, or wonder why footnotes don't work while you're in Live Preview...
 
 This works (and looks!) best with a theme that somehow showcases the accent color. Two great examples are [Border](https://github.com/Akifyss/obsidian-border) and [Minimal](https://minimal.guide/).
 
