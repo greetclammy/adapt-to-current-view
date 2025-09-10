@@ -47,10 +47,6 @@ Untill this plugin is made availiable in the plugin gallery, it can be insalled 
 5. Check "Enable after installing the plugin".
 6. Press "Add Plugin".
 
-## 🖼️ Optional CSS snippets
-
-A few nifty companion snippets can be found [here](https://github.com/greetclammy/adapt-to-current-view/tree/main/Optional%20CSS%20snippets).
-
 ## ⭐️ Support
 
 - [Report bugs](https://github.com/greetclammy/first-line-is-title/issues)
@@ -59,6 +55,10 @@ A few nifty companion snippets can be found [here](https://github.com/greetclamm
 - Share your thoughts on [Obsidian Forum](https://forum.obsidian.md/t/plugin-to-asign-different-accent-colors-for-reading-view-live-preview-and-source-view/90504), [Obsidian Members Group](https://discord.com/channels/686053708261228577/707816848615407697) or [GitHub discussions](https://github.com/greetclammy/adapt-to-current-view/discussions)
 
 If you find this plugin helpful, please star the repository 😇
+
+## 🖼️ Optional appearance tweaks
+
+A few nifty companion CSS snippets can be found [here](https://github.com/greetclammy/adapt-to-current-view/tree/main/Optional%20CSS%20snippets).
 
 ## 👨‍💻 What else I made
 
