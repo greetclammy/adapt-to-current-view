@@ -51,18 +51,15 @@ Untill this plugin is made availiable in the plugin gallery, it can be insalled 
 
 A few nifty companion snippets can be found [here](https://github.com/greetclammy/adapt-to-current-view/tree/main/Optional%20CSS%20snippets).
 
-## 💬 Discuss
+## ⭐️ Support
 
-Feel free to share your thoughts about this plugin on:
+- [Report bugs](https://github.com/greetclammy/first-line-is-title/issues)
+- [Request features](https://github.com/greetclammy/first-line-is-title/issues)
+- [Contribute improvements](https://github.com/greetclammy/first-line-is-title/pulls)
+- Share your thoughts on [Obsidian Forum](https://forum.obsidian.md/t/plugin-to-asign-different-accent-colors-for-reading-view-live-preview-and-source-view/90504), [Obsidian Members Group](https://discord.com/channels/686053708261228577/707816848615407697) or [GitHub discussions](https://github.com/greetclammy/adapt-to-current-view/discussions)
 
-- [The Obsidian Forum](https://forum.obsidian.md/t/plugin-to-asign-different-accent-colors-for-reading-view-live-preview-and-source-view/90504)
-- [The Obsidian Members Group (OMG) Discord channel](https://discord.com/channels/686053708261228577/707816848615407697)
-- [GitHub discussions](https://github.com/greetclammy/adapt-to-current-view/discussions)
-
-Or open an issue!
+If you find this plugin helpful, please star the repository 😇
 
 ## 👨‍💻 What else I made
 
 - [First Line is Title](https://github.com/greetclammy/first-line-is-title)
-
-Please ⭐️ the GitHub repository if you found the plugin helpful 😇
