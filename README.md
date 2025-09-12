@@ -75,7 +75,7 @@ If you find this plugin helpful, please star the repository 😇
 
 https://github.com/kyffa/Iridium
 
-## 🔧 Optional appearance tweaks
+## 🔧 Optional Obsidian appearance tweaks
 
 A few nifty companion CSS snippets can be found [here](https://github.com/greetclammy/adapt-to-current-view/tree/main/Optional%20CSS%20snippets).
 
