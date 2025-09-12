@@ -4,13 +4,9 @@ Set different accent colors for Reading view, Live Preview and Source.
 
 Helps to gauge what view you're in so you don't attempt to edit in Reading view, or wonder why footnotes don't work while you're in Live Preview...
 
-This works (and looks!) best with a theme that somehow showcases the accent color. A good example is [Border](https://github.com/Akifyss/obsidian-border) (shown below).
+This works (and looks!) best with an Obsidian theme that somehow showcases the accent color. A good example is [Border](https://github.com/Akifyss/obsidian-border):
 
 <img width="1890" height="1417" alt="border" src="https://github.com/user-attachments/assets/1d9b34d1-7105-4592-8b76-4cc649b1ec08" />
-
-### Iridium
-
-https://github.com/kyffa/Iridium
 
 ## ⚙️ Settings overview
 
@@ -75,7 +71,11 @@ If you find this plugin helpful, please star the repository 😇
 
 </details>
 
-## 🖼️ Optional appearance tweaks
+### Iridium
+
+https://github.com/kyffa/Iridium
+
+## 🔧 Optional appearance tweaks
 
 A few nifty companion CSS snippets can be found [here](https://github.com/greetclammy/adapt-to-current-view/tree/main/Optional%20CSS%20snippets).
 
