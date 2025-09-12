@@ -38,14 +38,26 @@ Recommended settings to enable:
 
 ## ✅ Installation
 
-Untill this plugin is made availiable in the plugin gallery, it can be insalled via the community plugin [BRAT](https://obsidian.md/plugins?id=obsidian42-brat):
+Untill _Adapt to Current View_ is made availiable in the plugin browser, follow the steps below to install it.
 
-1. Open BRAT settings.
-2. Press "Add Beta Plugin".
-3. Paste this URL in the text field: https://github.com/greetclammy/adapt-to-current-view.
-4. Select the latest release.
-5. Check "Enable after installing the plugin".
-6. Press "Add Plugin".
+### BRAT (recommended)
+
+1. Download and enable the community plugin [BRAT](https://obsidian.md/plugins?id=obsidian42-brat).
+2. Open _BRAT_ settings.
+3. Press _Add Beta Plugin_.
+4. Paste https://github.com/greetclammy/adapt-to-current-view in the text field.
+5. Select _Latest version_.
+6. Check _Enable after installing the plugin_.
+7. Press _Add Plugin_.
+
+### Install manually
+
+Note: to get updates for _Adapt to Current View_, you will have to check for and install them manually.
+
+1. Download `adapt-to-current-view.zip` in the `Assets` of a [latest release](https://github.com/greetclammy/adapt-to-current-view/releases).
+2. Unzip the folder and place it in the `.obsidian/plugins` folder (hidden on most OSes) at the root of your vault.
+3. Reload plugins or app.
+4. Enable _Adapt to Current View_ in `Settings > Community plugins > Installed plugins`.
 
 ## ⭐️ Support
 
