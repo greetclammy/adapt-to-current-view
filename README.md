@@ -4,30 +4,13 @@ Set different accent colors for Reading view, Live Preview and Source.
 
 Helps to gauge what view you're in so you don't attempt to edit in Reading view, or wonder why footnotes don't work while you're in Live Preview...
 
-This works (and looks!) best with a theme that somehow showcases the accent color. Two great examples are [Border](https://github.com/Akifyss/obsidian-border) and [Minimal](https://minimal.guide/).
-
-## Border
+This works (and looks!) best with a theme that somehow showcases the accent color. A good example is [Border](https://github.com/Akifyss/obsidian-border) (shown below).
 
 <img width="1890" height="1417" alt="border" src="https://github.com/user-attachments/assets/1d9b34d1-7105-4592-8b76-4cc649b1ec08" />
 
+### Iridium
 
-## Minimal
-
-Recommended settings to enable:
-
-1. _Undeline_ tab style, configured via *[Style Settings](https://obsidian.md/plugins?id=obsidian-style-settings)*.
-2. _Colorful active states_, configured in *[Minimal Theme Settings](https://obsidian.md/plugins?id=obsidian-minimal-settings)*.
-
-<img width="1890" height="1417" alt="minimal" src="https://github.com/user-attachments/assets/7cd8019a-7ad1-4a18-a822-cc1b34a6acfb" />
-
-<br>
-
-<details>
-  <summary>What it looks like on mobile</summary>
-
-![3f2bea90b423b4d4744b45cc5b7ddab1196ac671](https://github.com/user-attachments/assets/cd7b1b3a-f630-4b19-8f08-b4aef0b7e010)
-
-</details>
+https://github.com/kyffa/Iridium
 
 ## ⚙️ Settings overview
 
@@ -67,6 +50,30 @@ Note: to get updates for _Adapt to Current View_, you will have to check for and
 - Share your thoughts on [Obsidian Forum](https://forum.obsidian.md/t/plugin-to-asign-different-accent-colors-for-reading-view-live-preview-and-source-view/90504), [Obsidian Members Group](https://discord.com/channels/686053708261228577/707816848615407697) or [GitHub discussions](https://github.com/greetclammy/adapt-to-current-view/discussions)
 
 If you find this plugin helpful, please star the repository 😇
+
+## 🎨 Themes that highlight the accent color
+
+### Minimal
+
+<details>
+  <summary>Screenshot</summary>
+<img width="1890" height="1417" alt="minimal" src="https://github.com/user-attachments/assets/7cd8019a-7ad1-4a18-a822-cc1b34a6acfb" />
+</details>
+
+<details>
+  <summary>Recommended settings to enable</summary>
+  
+1. _Undeline_ tab style, configured via *[Style Settings](https://obsidian.md/plugins?id=obsidian-style-settings)*.
+2. _Colorful active states_, configured in *[Minimal Theme Settings](https://obsidian.md/plugins?id=obsidian-minimal-settings)*.
+
+</details>
+
+<details>
+  <summary>What it looks like on mobile</summary>
+
+![3f2bea90b423b4d4744b45cc5b7ddab1196ac671](https://github.com/user-attachments/assets/cd7b1b3a-f630-4b19-8f08-b4aef0b7e010)
+
+</details>
 
 ## 🖼️ Optional appearance tweaks
 
