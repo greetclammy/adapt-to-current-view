@@ -82,3 +82,5 @@ A few nifty companion CSS snippets can be found [here](https://github.com/greetc
 ## 👨‍💻 What else I made
 
 - [First Line is Title](https://github.com/greetclammy/first-line-is-title)
+
+<p align="center">Made with ❤️ for the Obsidian community</p>
