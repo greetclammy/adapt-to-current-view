@@ -11,7 +11,7 @@ This works (and looks!) best with an Obsidian theme that showcases the accent co
 ## ⚙️ Settings overview
 
 <details>
-  <summary>Screenshot</summary>
+  <summary><b>Press to expand</b></summary>
 <img width="918" height="707" alt="Screenshot 2025-08-01 at 23 40 53" src="https://github.com/user-attachments/assets/814f8d5a-07f6-4fd2-bd7a-d27c50f2a69e" />
 </details>
 
