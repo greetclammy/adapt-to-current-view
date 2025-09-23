@@ -11,13 +11,13 @@ This works (and looks!) best with an Obsidian theme that showcases the accent co
 ## ⚙️ Settings overview
 
 <details>
-  <summary><b>Press to expand</b></summary>
+  <summary>Press to view screenshot</summary>
 <img width="918" height="707" alt="Screenshot 2025-08-01 at 23 40 53" src="https://github.com/user-attachments/assets/814f8d5a-07f6-4fd2-bd7a-d27c50f2a69e" />
 </details>
 
 ## ✅ Installation
 
-Untill _Adapt to Current View_ is made availiable in the plugin browser, follow the steps below to install it.
+Untill _Adapt to Current View_ is made availiable in the plugin directory, follow the steps below to install it.
 
 ### BRAT (recommended)
 
@@ -35,8 +35,8 @@ Note: to get updates for _Adapt to Current View_, you will have to check for and
 
 1. Download `adapt-to-current-view.zip` in the `Assets` of a [latest release](https://github.com/greetclammy/adapt-to-current-view/releases).
 2. Unzip the folder and place it in the `.obsidian/plugins` folder (hidden on most OSes) at the root of your vault.
-3. Reload plugins or app.
-4. Enable _Adapt to Current View_ in `Settings > Community plugins > Installed plugins`.
+3. Reload plugins or Obsidian.
+4. Enable _Adapt to Current View_ in Settings > Community plugins > Installed plugins.
 
 ## ⭐️ Support
 
@@ -45,29 +45,29 @@ Note: to get updates for _Adapt to Current View_, you will have to check for and
 - [Contribute improvements](https://github.com/greetclammy/first-line-is-title/pulls)
 - Share your thoughts on [Obsidian Forum](https://forum.obsidian.md/t/plugin-to-asign-different-accent-colors-for-reading-view-live-preview-and-source-view/90504), [Obsidian Members Group](https://discord.com/channels/686053708261228577/707816848615407697) or [GitHub discussions](https://github.com/greetclammy/adapt-to-current-view/discussions)
 
-If you find this plugin helpful, please star the repository 😇
-
 ## 🎨 Themes that highlight the accent color
 
 ### Minimal
 
+https://minimal.guide/home
+
 <details>
-  <summary>Screenshot</summary>
+  <summary>Press to view screenshot</summary>
 <img width="1890" height="1417" alt="minimal" src="https://github.com/user-attachments/assets/7cd8019a-7ad1-4a18-a822-cc1b34a6acfb" />
 </details>
 
 <details>
-  <summary>Recommended settings to enable</summary>
-  
-1. _Undeline_ tab style, configured via *[Style Settings](https://obsidian.md/plugins?id=obsidian-style-settings)*.
-2. _Colorful active states_, configured in *[Minimal Theme Settings](https://obsidian.md/plugins?id=obsidian-minimal-settings)*.
+  <summary>Press to view mobile screenshot</summary>
+
+![3f2bea90b423b4d4744b45cc5b7ddab1196ac671](https://github.com/user-attachments/assets/cd7b1b3a-f630-4b19-8f08-b4aef0b7e010)
 
 </details>
 
 <details>
-  <summary>What it looks like on mobile</summary>
-
-![3f2bea90b423b4d4744b45cc5b7ddab1196ac671](https://github.com/user-attachments/assets/cd7b1b3a-f630-4b19-8f08-b4aef0b7e010)
+  <summary>Press to view recommended settings to enable</summary>
+  
+1. _Undeline_ tab style, configured via *[Style Settings](https://obsidian.md/plugins?id=obsidian-style-settings)*.
+2. _Colorful active states_, configured in *[Minimal Theme Settings](https://obsidian.md/plugins?id=obsidian-minimal-settings)*.
 
 </details>
 
