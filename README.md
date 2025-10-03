@@ -17,7 +17,7 @@ This works (and looks!) best with an Obsidian theme that highlights the accent c
 
 ## ✅ Installation
 
-Untill _Adapt to Current View_ is made availiable in the plugin directory, follow the steps below to install it.
+Untill _Adapt to Current View_ is [made availiable](https://github.com/obsidianmd/obsidian-releases/pull/7337) in the plugin directory, follow the steps below to install it.
 
 ### BRAT (recommended)
 
