@@ -45,7 +45,7 @@ Note: to get updates for _Adapt to Current View_, you will have to check for and
 - [Contribute improvements](https://github.com/greetclammy/first-line-is-title/pulls)
 - Share your thoughts on:
   - [Obsidian Forum](https://forum.obsidian.md/t/plugin-to-asign-different-accent-colors-for-reading-view-live-preview-and-source-view/90504)
-  - [Discord](https://discord.com/channels/686053708261228577/707816848615407697) ([join](https://discord.com/invite/obsidianmd))
+  - [Discord](https://discord.com/channels/686053708261228577/707816848615407697) - [join](https://discord.com/invite/obsidianmd)
   - [GitHub discussions](https://github.com/greetclammy/adapt-to-current-view/discussions)
 
 ## 🎨 Themes that highlight the accent color
