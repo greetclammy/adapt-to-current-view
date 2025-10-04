@@ -43,41 +43,43 @@ Note: to get updates for _Adapt to Current View_, you will have to check for and
 - [Report bugs](https://github.com/greetclammy/first-line-is-title/issues)
 - [Request features](https://github.com/greetclammy/first-line-is-title/issues)
 - [Contribute improvements](https://github.com/greetclammy/first-line-is-title/pulls)
-- Share your thoughts on [Obsidian Forum](https://forum.obsidian.md/t/plugin-to-asign-different-accent-colors-for-reading-view-live-preview-and-source-view/90504), [Obsidian Members Group](https://discord.com/channels/686053708261228577/707816848615407697) or [GitHub discussions](https://github.com/greetclammy/adapt-to-current-view/discussions)
+- Share your thoughts on:
+  - [Obsidian Forum](https://forum.obsidian.md/t/plugin-to-asign-different-accent-colors-for-reading-view-live-preview-and-source-view/90504)
+  - [Discord](https://discord.com/channels/686053708261228577/707816848615407697) ([invite](https://discord.com/invite/obsidianmd))
+  - [GitHub discussions](https://github.com/greetclammy/adapt-to-current-view/discussions)
 
 ## 🎨 Themes that highlight the accent color
 
-### Minimal
+<details>
+<summary>Minimal</summary>
 
 https://minimal.guide/home
 
-<details>
-  <summary>Press to view screenshot</summary>
-<img width="1890" height="1417" alt="minimal" src="https://github.com/user-attachments/assets/7cd8019a-7ad1-4a18-a822-cc1b34a6acfb" />
-</details>
+**Recommended settings to enable:**
 
-<details>
-  <summary>Press to view mobile screenshot</summary>
+1. _Undeline_ tab style, configured via [Style Settings](https://obsidian.md/plugins?id=obsidian-style-settings).
+2. _Colorful active states_, configured in [Minimal Theme Settings](https://obsidian.md/plugins?id=obsidian-minimal-settings).
+
+<img width="1890" height="1417" alt="minimal" src="https://github.com/user-attachments/assets/7cd8019a-7ad1-4a18-a822-cc1b34a6acfb" />
 
 ![3f2bea90b423b4d4744b45cc5b7ddab1196ac671](https://github.com/user-attachments/assets/cd7b1b3a-f630-4b19-8f08-b4aef0b7e010)
-
 </details>
 
 <details>
-  <summary>Press to view recommended settings to enable</summary>
-  
-1. _Undeline_ tab style, configured via *[Style Settings](https://obsidian.md/plugins?id=obsidian-style-settings)*.
-2. _Colorful active states_, configured in *[Minimal Theme Settings](https://obsidian.md/plugins?id=obsidian-minimal-settings)*.
-
+  <summary>Iridium</summary>
+<p></p>https://github.com/kyffa/Iridium</p>
+<img width="4711" height="2650" alt="image" src="https://github.com/user-attachments/assets/6b52e43d-cef4-4967-8530-f388c3a99a1b" />  
 </details>
 
-### Iridium
+<details>
+  <summary>Museifu Basic</summary>
+<p></p>https://github.com/account-not-relevant/museifu-basic-theme</p>
+<img width="1919" height="1016" alt="image" src="https://github.com/user-attachments/assets/a72c1a9b-7561-438d-9af0-62e633763e70" />
+</details>
 
-https://github.com/kyffa/Iridium
+## 🔧 Optional CSS snippets
 
-## 🔧 Optional Obsidian appearance tweaks
-
-A few nifty companion CSS snippets can be found [here](https://github.com/greetclammy/adapt-to-current-view/tree/main/Optional%20CSS%20snippets).
+A few nifty appearance tweaks can be found [here](https://github.com/greetclammy/adapt-to-current-view/tree/main/Optional%20CSS%20snippets).
 
 ## 👨‍💻 What else I made
 
