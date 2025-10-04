@@ -1,0 +1,66 @@
+/* Define variables for background colors */
+:root {
+    /* Light theme colors */
+    --light-desktop-source-bg-color: hsl(220, 100%, 96%);
+    --light-desktop-preview-bg-color: hsl(45, 100%, 96%);
+    --light-mobile-source-bg-color: hsl(200, 100%, 96%);
+    --light-mobile-preview-bg-color: hsl(60, 100%, 96%);
+
+    /* Dark theme colors */
+    --dark-desktop-source-bg-color: hsl(0, 0%, 10%);
+    --dark-desktop-preview-bg-color: hsl(0, 0%, 18%);
+    --dark-mobile-source-bg-color: hsl(0, 0%, 0%);
+    --dark-mobile-preview-bg-color: hsl(0, 0%, 24%);
+}
+
+/* Light theme styles for desktop */
+body.theme-light:not(.is-mobile) .markdown-source-view.mod-cm6:not(.is-live-preview) {
+    background-color: var(--light-desktop-source-bg-color);
+}
+body.theme-light:not(.is-mobile) .markdown-preview-view {
+    background-color: var(--light-desktop-preview-bg-color);
+}
+
+/* Light theme styles for mobile */
+body.theme-light.is-mobile .markdown-source-view.mod-cm6:not(.is-live-preview) {
+    background-color: var(--light-mobile-source-bg-color);
+}
+body.theme-light.is-mobile .markdown-preview-view {
+    background-color: var(--light-mobile-preview-bg-color);
+}
+
+/* Dark theme styles for desktop */
+body.theme-dark:not(.is-mobile) .markdown-source-view.mod-cm6:not(.is-live-preview) {
+    background-color: var(--dark-desktop-source-bg-color);
+}
+body.theme-dark:not(.is-mobile) .markdown-preview-view {
+    background-color: var(--dark-desktop-preview-bg-color);
+}
+
+/* Dark theme styles for mobile */
+body.theme-dark.is-mobile .markdown-source-view.mod-cm6:not(.is-live-preview) {
+    background-color: var(--dark-mobile-source-bg-color);
+}
+body.theme-dark.is-mobile .markdown-preview-view {
+    background-color: var(--dark-mobile-preview-bg-color);
+}
+
+/* Override for system dark theme when Obsidian is set to light theme (desktop) */
+@media (prefers-color-scheme: dark) {
+    body:not(.theme-dark):not(.is-mobile) .markdown-source-view.mod-cm6:not(.is-live-preview) {
+        background-color: var(--dark-desktop-source-bg-color);
+    }
+    body:not(.theme-dark):not(.is-mobile) .markdown-preview-view {
+        background-color: var(--dark-desktop-preview-bg-color);
+    }
+}
+
+/* Override for system dark theme when Obsidian is set to light theme (mobile) */
+@media (prefers-color-scheme: dark) {
+    body:not(.theme-dark).is-mobile .markdown-source-view.mod-cm6:not(.is-live-preview) {
+        background-color: var(--dark-mobile-source-bg-color);
+    }
+    body:not(.theme-dark).is-mobile .markdown-preview-view {
+        background-color: var(--dark-mobile-preview-bg-color);
+    }
+}
