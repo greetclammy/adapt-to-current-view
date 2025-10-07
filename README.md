@@ -86,4 +86,6 @@ A few nifty appearance tweaks can be found [here](https://github.com/greetclammy
 - [First Line is Title](https://github.com/greetclammy/first-line-is-title)
 - [Copy Link](https://github.com/greetclammy/copy-link)
 
+<br>
+
 <p align="center">Made with ❤️ for the Obsidian community</p>
