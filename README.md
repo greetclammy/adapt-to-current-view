@@ -15,7 +15,7 @@ This works (and looks!) best with an Obsidian theme that highlights the accent c
 <img width="918" height="707" alt="Screenshot 2025-08-01 at 23 40 53" src="https://github.com/user-attachments/assets/814f8d5a-07f6-4fd2-bd7a-d27c50f2a69e" />
 </details>
 
-## ✅ Installation
+## ✅ Install
 
 Untill _Adapt to Current View_ is [made availiable](https://github.com/obsidianmd/obsidian-releases/pull/7337) in the plugin directory, follow the steps below to install it.
 
@@ -83,8 +83,8 @@ A few nifty appearance tweaks can be found [here](https://github.com/greetclammy
 
 ## 👨‍💻 What else I made
 
-- [First Line is Title](https://github.com/greetclammy/first-line-is-title)
-- [Copy Link](https://github.com/greetclammy/copy-link)
+- [First Line is Title](https://github.com/greetclammy/first-line-is-title) - Automatically set the first line as note title.
+- [Copy Link](https://github.com/greetclammy/copy-link) - Add commands to quickly copy links to files, headings and blocks.
 
 <br>
 
