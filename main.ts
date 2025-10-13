@@ -1,4 +1,4 @@
-import { App, Plugin, PluginSettingTab, Setting, MarkdownView } from 'obsidian';
+import { App, Plugin, PluginSettingTab, Setting, MarkdownView, ColorComponent, TextComponent } from 'obsidian';
 
 interface AccentColorSettings {
     sourceColor: string;
@@ -32,6 +32,8 @@ const SETTING_KEYS = {
 
 export default class AccentColorPlugin extends Plugin {
     settings: AccentColorSettings;
+    private colorCache: Map<string, [number, number, number]> = new Map();
+    private tempColorElement: HTMLDivElement | null = null;
 
     async onload() {
         await this.loadSettings();
@@ -39,7 +41,6 @@ export default class AccentColorPlugin extends Plugin {
         this.registerEvent(this.app.workspace.on('active-leaf-change', () => this.updateAccentColor()));
         this.registerEvent(this.app.workspace.on('layout-change', () => this.updateAccentColor()));
         this.registerEvent(this.app.workspace.on('css-change', () => this.updateAccentColor()));
-        this.addStyles();
         this.updateAccentColor();
     }
 
@@ -159,11 +160,21 @@ export default class AccentColorPlugin extends Plugin {
         // Ensure color has # prefix
         const normalizedColor = this.normalizeColor(color);
 
-        const temp = document.createElement('div');
-        temp.style.color = normalizedColor;
-        document.body.appendChild(temp);
-        const computedColor = getComputedStyle(temp).color;
-        document.body.removeChild(temp);
+        // Check cache first
+        const cached = this.colorCache.get(normalizedColor);
+        if (cached) {
+            return cached;
+        }
+
+        // Create persistent temp element if it doesn't exist
+        if (!this.tempColorElement) {
+            this.tempColorElement = document.createElement('div');
+            this.tempColorElement.style.display = 'none';
+            document.body.appendChild(this.tempColorElement);
+        }
+
+        this.tempColorElement.style.color = normalizedColor;
+        const computedColor = getComputedStyle(this.tempColorElement).color;
 
         if (computedColor === 'rgb(0, 0, 0)' && !normalizedColor.match(/black|#000|rgb\(0,\s*0,\s*0\)/i)) {
             return DEFAULT_HSL;
@@ -193,34 +204,23 @@ export default class AccentColorPlugin extends Plugin {
             h /= 6;
         }
 
-        return [Math.round(h * 360), Math.round(s * 100), Math.round(l * 100)];
-    }
+        const result: [number, number, number] = [Math.round(h * 360), Math.round(s * 100), Math.round(l * 100)];
 
-    addStyles() {
-        const styleEl = document.createElement('style');
-        styleEl.id = 'accent-color-plugin-styles';
-        styleEl.textContent = `
-            .accent-color-button-container {
-                display: flex !important;
-                justify-content: flex-end !important;
-                margin-top: 20px !important;
-            }
-        `;
-        
-        // Remove existing styles if they exist
-        const existing = document.getElementById('accent-color-plugin-styles');
-        if (existing) {
-            existing.remove();
-        }
-        
-        document.head.appendChild(styleEl);
+        // Cache the result
+        this.colorCache.set(normalizedColor, result);
+
+        return result;
     }
 
     onunload() {
-        const existing = document.getElementById('accent-color-plugin-styles');
-        if (existing) {
-            existing.remove();
+        // Clean up the persistent temp element
+        if (this.tempColorElement) {
+            this.tempColorElement.remove();
+            this.tempColorElement = null;
         }
+
+        // Clear the cache
+        this.colorCache.clear();
     }
 }
 
@@ -236,16 +236,23 @@ class AccentColorSettingTab extends PluginSettingTab {
         const {containerEl} = this;
         containerEl.empty();
 
-        containerEl.createEl('h3', {text: '☀️ Light mode colors'});
-        containerEl.createEl('p', {text: 'Set accent color for each view mode when base color scheme is light.', cls: 'setting-item-description'});
+        new Setting(containerEl)
+            .setName('Light mode colors')
+            .setDesc('Set accent color for each view mode when base color scheme is light.')
+            .setHeading();
         this.addColorSettings(containerEl, false);
 
-        containerEl.createEl('h3', {text: '🌙 Dark mode colors'});
-        containerEl.createEl('p', {text: 'Set accent color for each view mode when base color scheme is dark. Leave blank to use light mode color.', cls: 'setting-item-description'});
+        new Setting(containerEl)
+            .setName('Dark mode colors')
+            .setDesc('Set accent color for each view mode when base color scheme is dark. Leave blank to use light mode color.')
+            .setHeading();
         this.addColorSettings(containerEl, true);
 
         // Restore defaults button
-        const buttonContainer = containerEl.createDiv({cls: 'setting-item accent-color-button-container'});
+        const buttonContainer = containerEl.createDiv({cls: 'setting-item'});
+        buttonContainer.style.display = 'flex';
+        buttonContainer.style.justifyContent = 'flex-end';
+        buttonContainer.style.marginTop = '20px';
         
         const restoreButton = buttonContainer.createEl('button', {
             text: 'Restore defaults',
@@ -273,10 +280,10 @@ class AccentColorSettingTab extends PluginSettingTab {
             
             const setting = new Setting(container)
                 .setName(mode.name);
-            
-            let textInput: any;
-            let colorPicker: any;
-            
+
+            let textInput: TextComponent;
+            let colorPicker: ColorComponent;
+
             setting.addColorPicker(color => {
                 // Always use normalized color with # prefix
                 const currentValue = this.plugin.settings[settingKey];
