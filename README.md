@@ -6,7 +6,7 @@ Helps to gauge what view you're in so you don't attempt to edit in Reading view,
 
 This works (and looks!) best with an Obsidian theme that highlights the accent color. A good example is [Border](https://github.com/Akifyss/obsidian-border):
 
-<img width="1890" height="1417" alt="border" src="https://github.com/user-attachments/assets/1d9b34d1-7105-4592-8b76-4cc649b1ec08" />
+<img src="https://github.com/user-attachments/assets/b9f284fb-a04f-4882-874b-2d5c4429db92" />
 
 ## ⚙️ Settings overview
 
