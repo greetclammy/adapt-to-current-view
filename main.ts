@@ -168,8 +168,8 @@ export default class AccentColorPlugin extends Plugin {
 
         // Create persistent temp element if it doesn't exist
         if (!this.tempColorElement) {
-            this.tempColorElement = document.createElement('div');
-            this.tempColorElement.style.display = 'none';
+            this.tempColorElement = createDiv();
+            this.tempColorElement.addClass('adapt-temp-color-element');
             document.body.appendChild(this.tempColorElement);
         }
 
@@ -249,11 +249,8 @@ class AccentColorSettingTab extends PluginSettingTab {
         this.addColorSettings(containerEl, true);
 
         // Restore defaults button
-        const buttonContainer = containerEl.createDiv({cls: 'setting-item'});
-        buttonContainer.style.display = 'flex';
-        buttonContainer.style.justifyContent = 'flex-end';
-        buttonContainer.style.marginTop = '20px';
-        
+        const buttonContainer = containerEl.createDiv({cls: 'setting-item adapt-restore-button-container'});
+
         const restoreButton = buttonContainer.createEl('button', {
             text: 'Restore defaults',
             cls: 'mod-cta'
