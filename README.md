@@ -40,9 +40,9 @@ Note: to get updates for _Adapt to Current View_, you will have to check for and
 
 ## ⭐️ Support
 
-- [Report bugs](https://github.com/greetclammy/first-line-is-title/issues)
+- [Report bugs](https://github.com/greetclammy/adapt-to-current-view/issues)
 - [Request features](https://github.com/greetclammy/first-line-is-title/issues)
-- [Contribute improvements](https://github.com/greetclammy/first-line-is-title/pulls)
+- [Contribute improvements](https://github.com/greetclammy/adapt-to-current-view/pulls)
 - Share your thoughts on:
   - [Obsidian Forum](https://forum.obsidian.md/t/plugin-to-asign-different-accent-colors-for-reading-view-live-preview-and-source-view/90504)
   - [Discord](https://discord.com/channels/686053708261228577/707816848615407697) • [Join](https://discord.com/invite/obsidianmd)
