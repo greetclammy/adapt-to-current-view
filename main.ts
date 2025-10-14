@@ -34,6 +34,7 @@ export default class AccentColorPlugin extends Plugin {
     settings: AccentColorSettings;
     private colorCache: Map<string, [number, number, number]> = new Map();
     private tempColorElement: HTMLDivElement | null = null;
+    private styleElement: HTMLStyleElement | null = null;
 
     async onload() {
         await this.loadSettings();
@@ -93,7 +94,7 @@ export default class AccentColorPlugin extends Plugin {
 
         const mode = this.detectMode(activeView);
         const isDark = this.isDarkMode();
-        
+
         let color: string;
         if (isDark) {
             if (mode === 'livePreview') {
@@ -115,23 +116,35 @@ export default class AccentColorPlugin extends Plugin {
 
         if (!color.trim()) {
             const [h, s, l] = DEFAULT_HSL;
-            document.body.style.setProperty('--accent-h', h.toString());
-            document.body.style.setProperty('--accent-s', s + '%');
-            document.body.style.setProperty('--accent-l', l + '%');
+            this.injectAccentColorStyles(h, s, l);
             return;
         }
 
         try {
             const [h, s, l] = this.convertToHSL(color);
-            document.body.style.setProperty('--accent-h', h.toString());
-            document.body.style.setProperty('--accent-s', s + '%');
-            document.body.style.setProperty('--accent-l', l + '%');
+            this.injectAccentColorStyles(h, s, l);
         } catch (e) {
             const [h, s, l] = DEFAULT_HSL;
-            document.body.style.setProperty('--accent-h', h.toString());
-            document.body.style.setProperty('--accent-s', s + '%');
-            document.body.style.setProperty('--accent-l', l + '%');
+            this.injectAccentColorStyles(h, s, l);
         }
+    }
+
+    private injectAccentColorStyles(h: number, s: number, l: number) {
+        // Create style element if it doesn't exist
+        if (!this.styleElement) {
+            this.styleElement = document.head.createEl('style', {
+                attr: { id: 'adapt-to-current-view-accent-colors' }
+            });
+        }
+
+        // Update the CSS custom properties via injected stylesheet
+        this.styleElement.textContent = `
+            body {
+                --accent-h: ${h};
+                --accent-s: ${s}%;
+                --accent-l: ${l}%;
+            }
+        `;
     }
 
     detectMode(view: MarkdownView): 'source' | 'livePreview' | 'reading' {
@@ -173,8 +186,18 @@ export default class AccentColorPlugin extends Plugin {
             document.body.appendChild(this.tempColorElement);
         }
 
-        this.tempColorElement.style.color = normalizedColor;
+        // Set color via CSS class and data attribute to avoid inline styles
+        this.tempColorElement.setAttribute('data-test-color', normalizedColor);
+
+        // Inject temporary style for color computation
+        const tempStyleEl = document.head.createEl('style');
+        tempStyleEl.textContent = `.adapt-temp-color-element[data-test-color="${normalizedColor}"] { color: ${normalizedColor}; }`;
+
         const computedColor = getComputedStyle(this.tempColorElement).color;
+
+        // Clean up temporary style
+        tempStyleEl.remove();
+        this.tempColorElement.removeAttribute('data-test-color');
 
         if (computedColor === 'rgb(0, 0, 0)' && !normalizedColor.match(/black|#000|rgb\(0,\s*0,\s*0\)/i)) {
             return DEFAULT_HSL;
@@ -217,6 +240,12 @@ export default class AccentColorPlugin extends Plugin {
         if (this.tempColorElement) {
             this.tempColorElement.remove();
             this.tempColorElement = null;
+        }
+
+        // Clean up the style element
+        if (this.styleElement) {
+            this.styleElement.remove();
+            this.styleElement = null;
         }
 
         // Clear the cache
