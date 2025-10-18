@@ -20,8 +20,6 @@ This works (and looks!) best with an Obsidian theme that highlights the accent c
 1. _Undeline_ tab style, configured via [Style Settings](https://obsidian.md/plugins?id=obsidian-style-settings).
 2. _Colorful active states_, configured in [Minimal Theme Settings](https://obsidian.md/plugins?id=obsidian-minimal-settings).
 
-![](https://github.com/user-attachments/assets/86866c9b-0463-4f2c-ab9d-a9382cfc8d12)
-
 </details>
 
 [Border](https://github.com/Akifyss/obsidian-border):
