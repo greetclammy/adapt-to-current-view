@@ -15,7 +15,7 @@ This works (and looks!) best with an Obsidian theme that highlights the accent c
 &nbsp;
 
 <details>
-<summary><b>Recommended Minimal settings to enable</b></summary>
+<summary>Recommended Minimal settings to enable</summary>
 
 1. _Undeline_ tab style, configured via [Style Settings](https://obsidian.md/plugins?id=obsidian-style-settings).
 2. _Colorful active states_, configured in [Minimal Theme Settings](https://obsidian.md/plugins?id=obsidian-minimal-settings).
@@ -30,13 +30,13 @@ This works (and looks!) best with an Obsidian theme that highlights the accent c
 Other themes:
 
 <details>
-  <summary><b>Iridium</b></summary>
+  <summary>Iridium</summary>
 <a href="https://github.com/kyffa/Iridium">https://github.com/kyffa/Iridium</a><p></p>
 <img src="https://github.com/user-attachments/assets/19f7c2e4-29a5-4ff8-8270-bc92627444db" />
 </details>
 
 <details>
-  <summary><b>Museifu Basic</b></summary>
+  <summary>Museifu Basic</summary>
 <a href="https://github.com/account-not-relevant/museifu-basic-theme">https://github.com/account-not-relevant/museifu-basic-theme</a><p></p>
 <img src="https://github.com/user-attachments/assets/54de01fa-a1c7-4482-b0da-5afb812388f2" />
 </details>
@@ -46,7 +46,7 @@ Other themes:
 [Install in Obsidian](https://obsidian.md/plugins?id=adapt-to-current-view)
 
 <details>
-  <summary><b>Install via BRAT</b></summary>
+  <summary>Install via BRAT</summary>
 
   1. Download and enable the community plugin [BRAT](https://obsidian.md/plugins?id=obsidian42-brat).
 2. Open _BRAT_ settings.
@@ -59,7 +59,7 @@ Other themes:
 </details>
 
 <details>
-  <summary><b>Install manually</b></summary>
+  <summary>Install manually</summary>
 
 Note: to get updates for _Adapt to Current View_, you will have to check for and install them manually.
 
