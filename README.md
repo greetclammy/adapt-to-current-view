@@ -31,13 +31,13 @@ Other themes:
 
 <details>
   <summary><b>Iridium</b></summary>
-<p></p>https://github.com/kyffa/Iridium</p>
+<p>https://github.com/kyffa/Iridium</p>
 <img src="https://github.com/user-attachments/assets/19f7c2e4-29a5-4ff8-8270-bc92627444db" />
 </details>
 
 <details>
   <summary><b>Museifu Basic</b></summary>
-<p></p>https://github.com/account-not-relevant/museifu-basic-theme</p>
+<p>https://github.com/account-not-relevant/museifu-basic-theme</p>
 <img src="https://github.com/user-attachments/assets/54de01fa-a1c7-4482-b0da-5afb812388f2" />
 </details>
 
