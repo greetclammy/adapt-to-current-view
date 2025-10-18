@@ -4,20 +4,49 @@ Set different accent colors for Reading view, Live Preview and Source view.
 
 Helps to gauge what view you're in so you don't attempt to edit in Reading view, or wonder why footnotes don't work while you're in Live Preview...
 
-This works (and looks!) best with an Obsidian theme that highlights the accent color. A good example is [Border](https://github.com/Akifyss/obsidian-border):
+<img src="https://github.com/user-attachments/assets/27570c26-ce7f-40f3-9111-0dbdcf597858" />
+&nbsp;
+
+This works (and looks!) best with an Obsidian theme that highlights the accent color. Below are a few examples.
+
+[Minimal](https://minimal.guide/home):
+
+<img src="https://github.com/user-attachments/assets/57bdfc56-f769-462c-accd-66ab889259c1" />
+&nbsp;
+
+<details>
+<summary><b>Recommended Minimal settings to enable</b></summary>
+
+1. _Undeline_ tab style, configured via [Style Settings](https://obsidian.md/plugins?id=obsidian-style-settings).
+2. _Colorful active states_, configured in [Minimal Theme Settings](https://obsidian.md/plugins?id=obsidian-minimal-settings).
+
+![](https://github.com/user-attachments/assets/86866c9b-0463-4f2c-ab9d-a9382cfc8d12)
+
+</details>
+
+[Border](https://github.com/Akifyss/obsidian-border):
 
 <img src="https://github.com/user-attachments/assets/39a5098d-7af4-4d5e-a602-1dc56da15ef4" />
+&nbsp;
 
-## ⚙️ Settings overview
+<details>
+  <summary><b>Iridium</b></summary>
+<p></p>https://github.com/kyffa/Iridium</p>
+<img src="https://github.com/user-attachments/assets/19f7c2e4-29a5-4ff8-8270-bc92627444db" />
+</details>
 
-<img width="918" height="707" alt="Screenshot 2025-08-01 at 23 40 53" src="https://github.com/user-attachments/assets/814f8d5a-07f6-4fd2-bd7a-d27c50f2a69e" />
+<details>
+  <summary><b>Museifu Basic</b></summary>
+<p></p>https://github.com/account-not-relevant/museifu-basic-theme</p>
+<img src="https://github.com/user-attachments/assets/54de01fa-a1c7-4482-b0da-5afb812388f2" />
+</details>
 
 ## ✅ Install
 
 [Install in Obsidian](https://obsidian.md/plugins?id=adapt-to-current-view)
 
 <details>
-  <summary>Install via BRAT</summary>
+  <summary><b>Install via BRAT</b></summary>
 
   1. Download and enable the community plugin [BRAT](https://obsidian.md/plugins?id=obsidian42-brat).
 2. Open _BRAT_ settings.
@@ -30,7 +59,7 @@ This works (and looks!) best with an Obsidian theme that highlights the accent c
 </details>
 
 <details>
-  <summary>Install manually</summary>
+  <summary><b>Install manually</b></summary>
 
 Note: to get updates for _Adapt to Current View_, you will have to check for and install them manually.
 
@@ -50,37 +79,6 @@ Note: to get updates for _Adapt to Current View_, you will have to check for and
   - [Obsidian Forum](https://forum.obsidian.md/t/plugin-to-asign-different-accent-colors-for-reading-view-live-preview-and-source-view/90504)
   - [Discord](https://discord.com/channels/686053708261228577/707816848615407697) • [Join](https://discord.com/invite/obsidianmd)
   - [GitHub discussions](https://github.com/greetclammy/adapt-to-current-view/discussions)
-
-## 🎨 Themes that highlight the accent color
-
-<details>
-<summary>Minimal</summary>
-
-https://minimal.guide/home
-
-**Recommended settings to enable:**
-
-1. _Undeline_ tab style, configured via [Style Settings](https://obsidian.md/plugins?id=obsidian-style-settings).
-2. _Colorful active states_, configured in [Minimal Theme Settings](https://obsidian.md/plugins?id=obsidian-minimal-settings).
-
-<img src="https://github.com/user-attachments/assets/57bdfc56-f769-462c-accd-66ab889259c1" />
-
-
-![](https://github.com/user-attachments/assets/86866c9b-0463-4f2c-ab9d-a9382cfc8d12)
-
-</details>
-
-<details>
-  <summary>Iridium</summary>
-<p></p>https://github.com/kyffa/Iridium</p>
-<img src="https://github.com/user-attachments/assets/19f7c2e4-29a5-4ff8-8270-bc92627444db" />
-</details>
-
-<details>
-  <summary>Museifu Basic</summary>
-<p></p>https://github.com/account-not-relevant/museifu-basic-theme</p>
-<img src="https://github.com/user-attachments/assets/54de01fa-a1c7-4482-b0da-5afb812388f2" />
-</details>
 
 ## 🔧 Optional CSS snippets
 
