@@ -31,7 +31,7 @@ Other themes:
 
 <details>
   <summary><b>Iridium</b></summary>
-<p>https://github.com/kyffa/Iridium</p>
+<a href="https://github.com/kyffa/Iridium">https://github.com/kyffa/Iridium</a><p></p>
 <img src="https://github.com/user-attachments/assets/19f7c2e4-29a5-4ff8-8270-bc92627444db" />
 </details>
 
