@@ -6,22 +6,20 @@ Helps to gauge what view you're in so you don't attempt to edit in Reading view,
 
 This works (and looks!) best with an Obsidian theme that highlights the accent color. A good example is [Border](https://github.com/Akifyss/obsidian-border):
 
-<img src="https://github.com/user-attachments/assets/b9f284fb-a04f-4882-874b-2d5c4429db92" />
+<img src="https://github.com/user-attachments/assets/39a5098d-7af4-4d5e-a602-1dc56da15ef4" />
 
 ## ⚙️ Settings overview
 
-<details>
-  <summary>Press to view screenshot</summary>
 <img width="918" height="707" alt="Screenshot 2025-08-01 at 23 40 53" src="https://github.com/user-attachments/assets/814f8d5a-07f6-4fd2-bd7a-d27c50f2a69e" />
-</details>
 
 ## ✅ Install
 
-Untill _Adapt to Current View_ is [made availiable](https://github.com/obsidianmd/obsidian-releases/pull/7337) in the plugin directory, follow the steps below to install it.
+[Install in Obsidian](https://obsidian.md/plugins?id=adapt-to-current-view)
 
-### BRAT (recommended)
+<details>
+  <summary>Install via BRAT</summary>
 
-1. Download and enable the community plugin [BRAT](https://obsidian.md/plugins?id=obsidian42-brat).
+  1. Download and enable the community plugin [BRAT](https://obsidian.md/plugins?id=obsidian42-brat).
 2. Open _BRAT_ settings.
 3. Press _Add Beta Plugin_.
 4. Paste https://github.com/greetclammy/adapt-to-current-view in the text field.
@@ -29,7 +27,10 @@ Untill _Adapt to Current View_ is [made availiable](https://github.com/obsidianm
 6. Check _Enable after installing the plugin_.
 7. Press _Add Plugin_.
 
-### Install manually
+</details>
+
+<details>
+  <summary>Install manually</summary>
 
 Note: to get updates for _Adapt to Current View_, you will have to check for and install them manually.
 
@@ -37,6 +38,8 @@ Note: to get updates for _Adapt to Current View_, you will have to check for and
 2. Unzip the folder and place it in the `.obsidian/plugins` folder (hidden on most OSes) at the root of your vault.
 3. Reload plugins or Obsidian.
 4. Enable _Adapt to Current View_ in Settings > Community plugins > Installed plugins.
+
+</details>
 
 ## ⭐️ Support
 
@@ -60,21 +63,23 @@ https://minimal.guide/home
 1. _Undeline_ tab style, configured via [Style Settings](https://obsidian.md/plugins?id=obsidian-style-settings).
 2. _Colorful active states_, configured in [Minimal Theme Settings](https://obsidian.md/plugins?id=obsidian-minimal-settings).
 
-<img width="1890" height="1417" alt="minimal" src="https://github.com/user-attachments/assets/7cd8019a-7ad1-4a18-a822-cc1b34a6acfb" />
+<img src="https://github.com/user-attachments/assets/57bdfc56-f769-462c-accd-66ab889259c1" />
 
-![3f2bea90b423b4d4744b45cc5b7ddab1196ac671](https://github.com/user-attachments/assets/cd7b1b3a-f630-4b19-8f08-b4aef0b7e010)
+
+![](https://github.com/user-attachments/assets/86866c9b-0463-4f2c-ab9d-a9382cfc8d12)
+
 </details>
 
 <details>
   <summary>Iridium</summary>
 <p></p>https://github.com/kyffa/Iridium</p>
-<img width="4711" height="2650" alt="image" src="https://github.com/user-attachments/assets/6b52e43d-cef4-4967-8530-f388c3a99a1b" />  
+<img src="https://github.com/user-attachments/assets/19f7c2e4-29a5-4ff8-8270-bc92627444db" />
 </details>
 
 <details>
   <summary>Museifu Basic</summary>
 <p></p>https://github.com/account-not-relevant/museifu-basic-theme</p>
-<img width="1919" height="1016" alt="image" src="https://github.com/user-attachments/assets/a72c1a9b-7561-438d-9af0-62e633763e70" />
+<img src="https://github.com/user-attachments/assets/54de01fa-a1c7-4482-b0da-5afb812388f2" />
 </details>
 
 ## 🔧 Optional CSS snippets
