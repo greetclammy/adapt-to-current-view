@@ -1,6 +1,6 @@
 # Adapt to Current View
 
-Set different accent colors for Reading view, Live Preview and Source view. 
+Set a different accent color for Reading view, Live Preview and Source view. 
 
 Helps to gauge what view you're in so you don't attempt to edit in Reading view, or wonder why footnotes don't work while you're in Live Preview...
 
