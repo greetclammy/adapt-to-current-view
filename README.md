@@ -27,7 +27,7 @@ This works (and looks!) best with an Obsidian theme that highlights the accent c
 <img src="https://github.com/user-attachments/assets/39a5098d-7af4-4d5e-a602-1dc56da15ef4" />
 &nbsp;
 
-Other themes:
+A few other themes that highlight the accent color:
 
 <details>
   <summary>Iridium</summary>
