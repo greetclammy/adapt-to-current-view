@@ -84,7 +84,7 @@ Note: to get updates for _Adapt to Current View_, you will have to check for and
 
 A few nifty appearance tweaks can be found [here](https://github.com/greetclammy/adapt-to-current-view/tree/main/Optional%20CSS%20snippets).
 
-## 👨‍💻 What else I made
+## 👨‍💻 My other plugins
 
 - [First Line is Title](https://github.com/greetclammy/first-line-is-title) - Automatically set the first line as note title.
 - [Copy Link](https://github.com/greetclammy/copy-link) - Add commands to quickly copy links to files, headings and blocks.
