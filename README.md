@@ -87,5 +87,5 @@ A few nifty appearance tweaks can be found [here](https://github.com/greetclammy
 ## 👨‍💻 My plugins
 
 - [Copy Link](https://github.com/greetclammy/copy-link) - Add commands to quickly copy links to files, headings and blocks.
-- [Dynamic Views](https://github.com/greetclammy/dynamic-views) - Elegant card layouts for Bases and Datacore.
+- [Dynamic Views](https://github.com/greetclammy/dynamic-views) - Elegant card views for Bases and Datacore.
 - [First Line is Title](https://github.com/greetclammy/first-line-is-title) - Automatically set the first line as note title.
