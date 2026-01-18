@@ -41,36 +41,7 @@ A few other themes that highlight the accent color:
 <img src="https://github.com/user-attachments/assets/54de01fa-a1c7-4482-b0da-5afb812388f2" />
 </details>
 
-## ✅ Install
-
-[Install in Obsidian](https://obsidian.md/plugins?id=adapt-to-current-view)
-
-<details>
-  <summary>Install via BRAT</summary>
-
-  1. Download and enable the community plugin [BRAT](https://obsidian.md/plugins?id=obsidian42-brat).
-2. Open _BRAT_ settings.
-3. Press _Add Beta Plugin_.
-4. Paste https://github.com/greetclammy/adapt-to-current-view in the text field.
-5. Select _Latest version_.
-6. Check _Enable after installing the plugin_.
-7. Press _Add Plugin_.
-
-</details>
-
-<details>
-  <summary>Install manually</summary>
-
-Note: to get updates for _Adapt to Current View_, you will have to check for and install them manually.
-
-1. Download `adapt-to-current-view.zip` in the `Assets` of a [latest release](https://github.com/greetclammy/adapt-to-current-view/releases).
-2. Unzip the folder and place it in the `.obsidian/plugins` folder (hidden on most OSes) at the root of your vault.
-3. Reload plugins or Obsidian.
-4. Enable _Adapt to Current View_ in Settings > Community plugins > Installed plugins.
-
-</details>
-
-## ⭐️ Support
+## Support
 
 - [Report bugs](https://github.com/greetclammy/adapt-to-current-view/issues)
 - [Request features](https://github.com/greetclammy/first-line-is-title/issues)
@@ -80,6 +51,6 @@ Note: to get updates for _Adapt to Current View_, you will have to check for and
   - [Discord](https://discord.com/channels/686053708261228577/707816848615407697) • [Join](https://discord.com/invite/obsidianmd)
   - [GitHub discussions](https://github.com/greetclammy/adapt-to-current-view/discussions)
 
-## 🔧 Optional CSS snippets
+## Optional CSS snippets
 
 A few nifty appearance tweaks can be found [here](https://github.com/greetclammy/adapt-to-current-view/tree/main/Optional%20CSS%20snippets).
